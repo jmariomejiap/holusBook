@@ -1,0 +1,17 @@
+{
+  "cSpell.enabled": false,
+  "eslint.enable": true,
+  "eslint.options": {
+    "configFile": "./.eslintrc.json"
+  },
+  "eslint.run": "onSave",
+  "files.exclude": {
+    "**/*.js": true,
+    "**/*.js.map": true,
+    // "node_modules/": true,
+    "__test__/**/*.map": true,
+    "__test__/**/*.js": true,
+    ".nyc_output": true,
+    "coverage": true
+  }
+}

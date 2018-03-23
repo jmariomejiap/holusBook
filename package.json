@@ -1,0 +1,45 @@
+{
+  "name": "React-Native-Boilerplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "build": "tsc",
+    "tsc:watch": "npm run build -- -w",
+    "lint": "tslint -p ./"
+  },
+  "dependencies": {
+    "@types/prop-types": "^15.5.2",
+    "@types/react": "^16.0.27",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-native": "^0.50.7",
+    "@types/react-native-vector-icons": "^4.4.2",
+    "@types/react-navigation": "^1.0.25",
+    "@types/react-redux": "^5.0.14",
+    "babel-core": "^6.26.0",
+    "react": "16.0.0",
+    "react-native": "0.50.4",
+    "react-native-vector-icons": "4.4.2",
+    "react-navigation": "1.0.0-beta.21",
+    "react-redux": "5.0.6",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.1",
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "21.2.1",
+    "react-test-renderer": "16.0.0",
+    "redux-next": "reactjs/redux",
+    "source-map-loader": "^0.2.3",
+    "ts-jest": "^21.2.4",
+    "tslint": "^5.6.0",
+    "tslint-react": "^3.2.0",
+    "typescript": "^2.6.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

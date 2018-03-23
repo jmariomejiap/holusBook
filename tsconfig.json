@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "jsx": "react",
+    "sourceMap": true,
+    "pretty": true,
+    "baseUrl": "./",
+    "skipLibCheck": true
+  },
+  "include": [
+    "./"
+  ]
+}
