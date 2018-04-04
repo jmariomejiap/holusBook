@@ -7,8 +7,8 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import Home from '../Modules/Home/HomeScene';
 import ListRecipes from '../Modules/ListRecipes/ListRecipesScene';
 import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';
-import SecondView from '../Modules/SecondView/SecondViewScene';
-import ThirdView from '../Modules/ThirdView'
+import SearchView from '../Modules/SearchView/SearchViewScene';
+import FavoritesView from '../Modules/FavoritesView/FavoritesViewScene';
 
 const HomeStack = StackNavigator({
   Home: { screen: Home },
@@ -16,15 +16,11 @@ const HomeStack = StackNavigator({
   RecipeDetails: { screen: RecipeDetails }
 },
 {
-// Default config for all screens
-  // headerMode: 'none',
   initialRouteName: 'Home',
-    // Uncomment for disable swipe back
-    /** navigationOptions: { gesturesEnabled: false }, */
 });
 
 const SearchStack = StackNavigator({
-  Search: { screen: SecondView },
+  Search: { screen: SearchView },
   RecipeDetails: { screen: RecipeDetails }
 },
 {
@@ -32,12 +28,13 @@ const SearchStack = StackNavigator({
 });
 
 const FavoritesStack = StackNavigator({
-  Favorites: { screen: ThirdView },
+  Favorites: { screen: FavoritesView },
   RecipeDetails: { screen: RecipeDetails }
 },
 {
   initialRouteName: 'Favorites',
 });
+
 
 
 const PrimaryNav = TabNavigator(
@@ -53,11 +50,11 @@ const PrimaryNav = TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Categories') {
-          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          iconName = `ios-list${focused ? '' : '-outline'}`;
         } else if (routeName === 'Search') {
           iconName = `ios-search${focused ? '' : '-outline'}`;
         } else if (routeName === 'Favorites') {
-          iconName = `ios-settings${focused ? '' : '-outline'}`;
+          iconName = `ios-heart${focused ? '' : '-outline'}`;
         }
 
         // You can return any component that you like here! We usually use an

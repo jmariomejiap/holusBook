@@ -28,11 +28,12 @@ export default class ListRecipes extends React.Component<Props> {
     return (
       <TouchableOpacity
         key={item.key}    
-        onPress={this.onClickNavigate}        
+        onPress={this.onClickNavigate}     
+        style={styles.wrapper}   
       >
         <View style={styles.container}>
           <View style={styles.picture} />
-          <Text style={styles.text}>Title place holder {`${item.key}`}</Text>
+          <Text style={styles.text}>Title place holder recipe {`${item.key}`}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -40,29 +41,32 @@ export default class ListRecipes extends React.Component<Props> {
 
   render(){
     return (
-      <FlatList
-        data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}]}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
-      />      
+      <View style={styles.mainContainer}>
+        <FlatList
+          data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}]}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+        />      
+      </View>
+      
     );
   }
 }
 
 const styles = StyleSheet.create({
+  mainContainer: { backgroundColor: 'white' },
+  wrapper: { marginBottom: 20 },
   container: {
-    flex: 1,
     flexDirection: 'column',
-    marginBottom: 15,
+    height: 160,
   },
   picture: {
     width,
-    height: 140,
+    height: 143,
     backgroundColor: 'lightgrey',
-    alignSelf: 'flex-start',
   },
   text: {
-    fontSize: 30,
-    backgroundColor: 'lightgrey',
+    fontSize: 16,
+    backgroundColor: 'snow',
   }
 })

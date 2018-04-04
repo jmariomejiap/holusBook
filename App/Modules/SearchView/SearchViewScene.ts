@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // App modules
-import SecondView from './index';
+import SearchView from './index';
 
 import { RootState } from '../../Redux/rootReducers';
 import { Dispatch } from '../../Redux/types';
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
 
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(SecondView);
+export default connect(null, mapDispatchToProps)(SearchView);

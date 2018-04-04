@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   picture: {
     width,
     height: 180,
-    backgroundColor: 'lightgreen',
+    backgroundColor: 'darkgrey',
     alignSelf: 'flex-start',
   },
   text: {

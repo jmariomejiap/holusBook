@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 
 // Libraries
 import { NavigationActions } from 'react-navigation';
@@ -15,7 +15,9 @@ interface Props {
   navigation: any;
 }
 
-export default class ThirdView extends React.Component<Props, {}> {
+const { width } = Dimensions.get('window');
+
+export default class FavoritesView extends React.Component<Props, {}> {
   constructor(props: any) {
     super(props);
 
@@ -23,6 +25,7 @@ export default class ThirdView extends React.Component<Props, {}> {
 
     // Actions
     this.onClickGoBack = this.onClickGoBack.bind(this);
+    this.onClickNavigate = this.onClickNavigate.bind(this);
   }
 
   // Actions
@@ -35,7 +38,7 @@ export default class ThirdView extends React.Component<Props, {}> {
 
 
   onClickNavigate() {
-    this.props.navigation.navigate('ListRecipes');
+    this.props.navigation.navigate('RecipeDetails');
   }
   
   
@@ -44,14 +47,11 @@ export default class ThirdView extends React.Component<Props, {}> {
     return (
       <View style={styles.mainContainer}>
         <Header navigation={this.props.navigation} title={`Favorites View`} />
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.buttonBase} onPress={this.onClickNavigate}>
-            <View style={{ width: 300, height: 150, backgroundColor: 'lightgrey' }}>
-              <Text>{`example favorite`}</Text>
+        <View>
+          <TouchableOpacity onPress={this.onClickNavigate}>
+            <View style={{ width: width, height: 150, backgroundColor: 'lightgrey', justifyContent: 'center', alignItems: 'center' }}>
+              <Text>{`example favorite recipe ${width}`}</Text>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonBase} onPress={this.onClickGoBack}>
-            <Text style={{ marginTop: 40 }}>{`Go back`}</Text>
           </TouchableOpacity>
         </View>
       </View>

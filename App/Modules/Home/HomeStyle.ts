@@ -6,7 +6,7 @@ const styles: any = {
   container: {
     ...ApplicationStyles.screen.mainContainer,
     ...ApplicationStyles.screen.centerElementsContainer,
-    backgroundColor: Colors.whiteSmoke
+    backgroundColor: 'white',
   },
   welcome: {
     fontSize: Fonts.size.h5,

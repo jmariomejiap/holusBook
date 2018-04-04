@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   categorieText: {
-    fontSize: 40,
+    fontSize: 24,
     backgroundColor: 'lightgrey',
   }
 })
