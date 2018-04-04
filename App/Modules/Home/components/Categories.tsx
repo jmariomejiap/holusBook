@@ -7,18 +7,27 @@ import {
 } from 'react-native';
 
 interface Props {
+  onPress: () => any;
 }
 
 
-export default class Categories extends React.Component<Props> {
+export default class CategoriesList extends React.Component<Props> {
   render(){
+    const categories = ['category1', 'category2','category3', 'category4', 'category5'];
     return (
       <View style={styles.categoriesContainer}>
-        <Text style={styles.categorieText}>Category1</Text>
-        <Text style={styles.categorieText}>Category2</Text>
-        <Text style={styles.categorieText}>Category3</Text>
-        <Text style={styles.categorieText}>Category4</Text>
-        <Text style={styles.categorieText}>Category5</Text>
+        {categories.map((cat) => {
+          return (
+            <TouchableOpacity
+              key={cat}
+              style={{ backgroundColor: 'lightgreen'}}
+              onPress={this.props.onPress}
+            >
+              <Text style={styles.categorieText}>{cat}</Text>
+            </TouchableOpacity>
+          );          
+        })}
+        
       </View>
     );
   }

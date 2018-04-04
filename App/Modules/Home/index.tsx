@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import  Tour from './components/Tour';
-import Categories from './components/Categories';
+import CategoriesList from './components/Categories';
 
 interface Props {
   navigation: any;
@@ -30,7 +30,7 @@ export default class Home extends React.Component<Props, {}> {
 
   // Actions
   onClickNavigate() {
-    this.props.navigation.navigate('SecondView');
+    this.props.navigation.navigate('ListRecipes');
   }
 
   render() {
@@ -38,7 +38,7 @@ export default class Home extends React.Component<Props, {}> {
       <View style={styles.container} >
         {this.props.tourState ?
           <Tour handleTour={this.props.handleTourState}/> :
-          <Categories />
+          <CategoriesList onPress={this.onClickNavigate}/>
         }
       </View>
     );

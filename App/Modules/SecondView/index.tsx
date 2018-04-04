@@ -36,7 +36,7 @@ export default class SecondView extends React.Component<Props, {}> {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Header navigation={this.props.navigation} title={`Test Title`} />
+        <Header navigation={this.props.navigation} title={`Search View`} />
         <View style={styles.container}>
           <TouchableOpacity style={styles.buttonBase} onPress={this.onClickGoBack}>
             <Text>{`Go back`}</Text>
