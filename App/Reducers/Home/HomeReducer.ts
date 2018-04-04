@@ -3,15 +3,17 @@ import { copyObject } from '../../Utils/objectUtils';
 import { Action } from '../../Redux/types';
 
 // Constants
-import { SET_APP_NAME } from './HomeAction';
+import { SET_APP_NAME, TOUR_STATE } from './HomeAction';
 
 // Type
 type State = {
-  appName?: string
+  appName: string,
+  tourState: boolean,
 };
 
 const inmutableState: State = {
-  appName: ''
+  appName: '',
+  tourState: false,
 };
 
 const initialState = copyObject(inmutableState);
@@ -23,6 +25,13 @@ export default function reducer(state = initialState, action: Action) {
         ...state,
         appName: action.value
       };
+
+    case TOUR_STATE:
+      return {
+        ...state,
+        tourState: !state.tourState,
+      }
+    
     default:
       return state;
   }

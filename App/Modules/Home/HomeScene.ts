@@ -9,17 +9,19 @@ import { RootState } from '../../Redux/rootReducers';
 import { Dispatch } from '../../Redux/types';
 
 // Actions.
-import { set_app_name } from '../../Reducers/Home/HomeAction';
+import { set_app_name, handleTourState } from '../../Reducers/Home/HomeAction';
 
 // Connect to redux.
 const mapStateToProps = (state: RootState) => {
   return {
-    home: state.home
+    home: state.home,
+    tourState: state.home.tourState,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-  set_app_name
+  set_app_name,
+  handleTourState,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
