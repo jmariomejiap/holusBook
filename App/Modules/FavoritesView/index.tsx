@@ -1,5 +1,10 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
 
 // Libraries
 import { NavigationActions } from 'react-navigation';
@@ -8,7 +13,7 @@ import { NavigationActions } from 'react-navigation';
 import Header from '../../Comps/Header';
 
 // Styles
-// import styles from './SecondViewStyle';
+import styles from './FavoritesViewStyle';
 
 // Interface
 interface Props {
@@ -36,11 +41,9 @@ export default class FavoritesView extends React.Component<Props, {}> {
     this.props.navigation.dispatch(backAction);
   }
 
-
   onClickNavigate() {
     this.props.navigation.navigate('RecipeDetails');
   }
-  
   
 
   render() {
@@ -58,9 +61,3 @@ export default class FavoritesView extends React.Component<Props, {}> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  mainContainer: { flex: 1 },
-  container: { flex: 1, justifyContent: 'center' },
-  buttonBase: { alignSelf: 'center' },
-})

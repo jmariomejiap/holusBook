@@ -6,8 +6,11 @@ import {
   Dimensions
 } from 'react-native';
 
-interface Props {
+import styles from './RecipeStyle';
 
+
+interface Props {
+  
 }
 
 const { width } = Dimensions.get('window');
@@ -15,27 +18,11 @@ const { width } = Dimensions.get('window');
 export default class Recipe extends React.Component<Props> {
   render(){
     return (
-      <View style={styles.container}>        
-        <View style={styles.picture} />
+      <View style={styles.mainContainer}>        
+        <View style={[styles.picture, { width }]} />
         <Text style={styles.text}>PLACE HOLDER FOR RECIPE</Text>
         <Text style={styles.text}>description</Text>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  picture: {
-    width,
-    height: 180,
-    backgroundColor: 'darkgrey',
-    alignSelf: 'flex-start',
-  },
-  text: {
-    fontSize: 20,
-    marginTop: 20,
-  }
-})

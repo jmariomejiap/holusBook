@@ -29,7 +29,6 @@ export default class CategoriesList extends React.Component<Props> {
             </TouchableOpacity>
           );          
         })}
-        
       </View>
     );
   }

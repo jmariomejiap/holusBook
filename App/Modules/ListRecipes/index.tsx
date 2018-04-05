@@ -8,6 +8,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import styles from './ListRecipesStyle';
+
 interface Props {
   navigation: any;
 }
@@ -32,7 +34,7 @@ export default class ListRecipes extends React.Component<Props> {
         style={styles.wrapper}   
       >
         <View style={styles.container}>
-          <View style={styles.picture} />
+          <View style={[styles.picture, { width }]} />
           <Text style={styles.text}>Title place holder recipe {`${item.key}`}</Text>
         </View>
       </TouchableOpacity>
@@ -52,21 +54,3 @@ export default class ListRecipes extends React.Component<Props> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  mainContainer: { backgroundColor: 'white' },
-  wrapper: { marginBottom: 20 },
-  container: {
-    flexDirection: 'column',
-    height: 160,
-  },
-  picture: {
-    width,
-    height: 143,
-    backgroundColor: 'lightgrey',
-  },
-  text: {
-    fontSize: 16,
-    backgroundColor: 'snow',
-  }
-})
