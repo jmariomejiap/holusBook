@@ -65,6 +65,7 @@ const PrimaryNav = TabNavigator(
     tabBarOptions: {
       activeTintColor: 'grey',
       inactiveTintColor: 'gray',
+      showLabel: false,
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
