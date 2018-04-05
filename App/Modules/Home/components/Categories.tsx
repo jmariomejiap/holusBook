@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   TouchableOpacity
 } from 'react-native';
+
+// Styles
+import styles from '../HomeStyle';
 
 interface Props {
   onPress: () => any;
@@ -32,16 +34,3 @@ export default class CategoriesList extends React.Component<Props> {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  categoriesContainer: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-  },
-  categorieText: {
-    fontSize: 24,
-    backgroundColor: 'lightgrey',
-  }
-})
