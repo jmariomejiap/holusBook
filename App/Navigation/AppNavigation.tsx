@@ -2,9 +2,9 @@ import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
-//import { StackNavigator } from 'react-navigation';
-
+// components
 import Home from '../Modules/Home/HomeScene';
+import CategoriesList from '../Modules/Home/components/Categories'
 import ListRecipes from '../Modules/ListRecipes/ListRecipesScene';
 import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';
 import SearchView from '../Modules/SearchView/SearchViewScene';
@@ -12,11 +12,13 @@ import FavoritesView from '../Modules/FavoritesView/FavoritesViewScene';
 
 const HomeStack = StackNavigator({
   Home: { screen: Home },
+  CategoriesList: { screen: CategoriesList },
   ListRecipes: { screen: ListRecipes },
   RecipeDetails: { screen: RecipeDetails }
 },
 {
   initialRouteName: 'Home',
+  headerMode: 'none'
 });
 
 const SearchStack = StackNavigator({
@@ -25,6 +27,7 @@ const SearchStack = StackNavigator({
 },
 {
   initialRouteName: 'Search',
+  headerMode: 'none'
 });
 
 const FavoritesStack = StackNavigator({
@@ -33,6 +36,7 @@ const FavoritesStack = StackNavigator({
 },
 {
   initialRouteName: 'Favorites',
+  headerMode: 'none'
 });
 
 

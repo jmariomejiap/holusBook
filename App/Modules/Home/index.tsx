@@ -11,12 +11,19 @@ interface Props {
   handleTourState: () => any;
 }
 
+interface State {
+  Mounted: boolean;
+}
+
 // Styles
 import styles from './HomeStyle';
 
-export default class Home extends React.Component<Props, {}> {
+export default class Home extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
+    this.state = {
+      Mounted: false,
+    }
 
     /** Bind Functions */
 
@@ -24,8 +31,23 @@ export default class Home extends React.Component<Props, {}> {
     this.onClickNavigate = this.onClickNavigate.bind(this);
   }
 
+  static navigationOptions = {
+    tabBarVisible: false
+  };
+
+
   componentDidMount() {
     this.props.handleTourState();
+    this.setState({ Mounted: true });
+  }
+
+  shouldComponentUpdate(nextProps:any , nextState: any):any {
+    if (this.state.Mounted && !nextProps.tourState) {
+      this.redirect();
+      return false;
+    }
+    return true;
+
   }
 
   // Actions
@@ -33,13 +55,15 @@ export default class Home extends React.Component<Props, {}> {
     this.props.navigation.navigate('ListRecipes');
   }
 
+  redirect() {
+    this.props.navigation.navigate('CategoriesList');
+  }
+
+
   render() {
     return (
       <View style={styles.container} >
-        {this.props.tourState ?
-          <Tour handleTour={this.props.handleTourState}/> :
-          <CategoriesList onPress={this.onClickNavigate}/>
-        }
+        {this.props.tourState && <Tour handleTour={this.props.handleTourState}/>}
       </View>
     );
   }

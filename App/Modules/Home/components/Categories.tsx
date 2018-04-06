@@ -9,21 +9,32 @@ import {
 import styles from '../HomeStyle';
 
 interface Props {
-  onPress: () => any;
+  navigation: any;
 }
 
 
 export default class CategoriesList extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      Mounted: false,
+    }
+    this.onClickNavigate = this.onClickNavigate.bind(this);
+  }
+
+  onClickNavigate(name: string) {
+    this.props.navigation.navigate('ListRecipes', { name });
+  }
+
   render(){
-    const categories = ['category1', 'category2','category3', 'category4', 'category5'];
+    const categories = ['Soup', 'Appetizers','Dinner', 'Salads', 'Desserts'];
     return (
       <View style={styles.categoriesContainer}>
         {categories.map((cat) => {
           return (
             <TouchableOpacity
               key={cat}
-              style={{ backgroundColor: 'lightgreen'}}
-              onPress={this.props.onPress}
+              onPress={() => this.onClickNavigate(cat)}
             >
               <Text style={styles.categorieText}>{cat}</Text>
             </TouchableOpacity>

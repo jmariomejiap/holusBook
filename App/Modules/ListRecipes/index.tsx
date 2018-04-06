@@ -8,6 +8,13 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+// Libraries
+import { NavigationActions } from 'react-navigation';
+
+// App Modules
+import Header from '../../Comps/Header';
+
+
 import styles from './ListRecipesStyle';
 
 interface Props {
@@ -17,8 +24,25 @@ interface Props {
 const { width } = Dimensions.get('window');
 
 export default class ListRecipes extends React.Component<Props> {
+  constructor(props: any) {
+    super(props);
 
-  onClickNavigate = () => {
+    /** Bind Functions */
+
+    // Actions
+    this.onClickGoBack = this.onClickGoBack.bind(this);
+    this.onClickNavigate = this.onClickNavigate.bind(this);
+  }
+
+  // Actions
+  onClickGoBack() {
+    const backAction = NavigationActions.back({
+      key: null
+    });
+    this.props.navigation.dispatch(backAction);
+  }
+
+  onClickNavigate(){
     this.props.navigation.navigate('RecipeDetails');
   }
   _keyExtractor = (item: any) => {
@@ -42,8 +66,11 @@ export default class ListRecipes extends React.Component<Props> {
   }  
 
   render(){
+    const { name } = this.props.navigation.state.params;
+
     return (
       <View style={styles.mainContainer}>
+        <Header navigation={this.props.navigation} title={name} />
         <FlatList
           data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}]}
           keyExtractor={this._keyExtractor}

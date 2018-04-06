@@ -63,3 +63,6 @@ package-lock.json
 # Generate files by tsc
 **/*.js
 *.js.map
+
+# tour images. Wating for compression!
+App/Modules/Home/components/images

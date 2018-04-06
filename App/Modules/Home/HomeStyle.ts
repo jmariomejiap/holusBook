@@ -8,12 +8,23 @@ const styles: any = {
   },
   slide: {
     ...ApplicationStyles.screen.mainContainer,
-    ...ApplicationStyles.screen.centerElementsContainer,
+    flexDirection: 'column',
   },
-  slideText: {
-    color: 'grey',
-    fontSize: 35,
+  textContainer: {
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  slideTitle: {
+    color: 'rgb(73, 73, 54)',
+    fontSize: 20,
     fontWeight: 'bold',
+    marginVertical: 22,
+    textAlign: 'center',
+  },
+  slideContent: {
+    color: 'grey',
+    fontSize: 13,
+    textAlign: 'center',
   },
   tourButtonWrapper : {
     backgroundColor: 'transparent',
@@ -29,9 +40,11 @@ const styles: any = {
   },
   categoriesContainer: {
     ...ApplicationStyles.screen.mainContainer,
+    backgroundColor: 'rgb(110, 119, 100)',
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'space-around',
+
   },
   categorieText: {
     fontSize: 24,
