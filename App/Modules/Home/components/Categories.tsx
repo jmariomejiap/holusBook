@@ -27,7 +27,7 @@ export default class CategoriesList extends React.Component<Props> {
   }
 
   render(){
-    const categories = ['Soup', 'Appetizers','Dinner', 'Salads', 'Desserts'];
+    const categories = ['Soups', 'Appetizers','Dinner', 'Salads', 'Desserts'];
     return (
       <View style={styles.categoriesContainer}>
         {categories.map((cat) => {

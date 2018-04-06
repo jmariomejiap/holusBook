@@ -7,8 +7,14 @@ interface Props {
   navigation: any;
   home: any;
   tourState: boolean;
+  soupData: any;
+  appetizerData: any,
+  dinnerData: any,
+  saladData: any,
+  dessertData: any,
   set_app_name: () => any;
   handleTourState: () => any;
+  fetchData: () => any;
 }
 
 interface State {
@@ -28,7 +34,6 @@ export default class Home extends React.Component<Props, State> {
     /** Bind Functions */
 
     // Actions
-    this.onClickNavigate = this.onClickNavigate.bind(this);
   }
 
   static navigationOptions = {
@@ -39,6 +44,7 @@ export default class Home extends React.Component<Props, State> {
   componentDidMount() {
     this.props.handleTourState();
     this.setState({ Mounted: true });
+    this.props.fetchData();
   }
 
   shouldComponentUpdate(nextProps:any , nextState: any):any {
@@ -51,10 +57,6 @@ export default class Home extends React.Component<Props, State> {
   }
 
   // Actions
-  onClickNavigate() {
-    this.props.navigation.navigate('ListRecipes');
-  }
-
   redirect() {
     this.props.navigation.navigate('CategoriesList');
   }
