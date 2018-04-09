@@ -46,7 +46,7 @@ export const updateDessertData = (arrRecipes: Array<RecipeContent> ): Action => 
 
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
-    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_data.json')
+    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_data_new.json')
       .then(data => {
         const soups = filterCategory(data, 'soup');
         const appetizers = filterCategory(data, 'appetizer');
