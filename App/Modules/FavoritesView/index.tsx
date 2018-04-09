@@ -5,24 +5,17 @@ import {
   TouchableOpacity,
   Dimensions
 } from 'react-native';
-
-// Libraries
 import { NavigationActions } from 'react-navigation';
-
-// App Modules
 import Header from '../../Comps/Header';
-
-// Styles
 import styles from './FavoritesViewStyle';
 
-// Interface
-interface Props {
-  navigation: any;
-}
+// types
+import { FavoritesView as T } from '../types/appTypes';
+
 
 const { width } = Dimensions.get('window');
 
-export default class FavoritesView extends React.Component<Props, {}> {
+export default class FavoritesView extends React.Component<T.Props> {
   constructor(props: any) {
     super(props);
 

@@ -6,28 +6,32 @@ import {
   Dimensions,
   Image
 } from 'react-native';
+import { Tour as T } from '../../../types/appTypes';
+import styles from '../../HomeStyle';
 
 //import Swiper from 'react-native-swiper/src/';
 const Swiper = require('react-native-swiper');
 
 
-// Styles
-import styles from '../HomeStyle';
-
 const { width } = Dimensions.get('window');
 
-interface Props {
-  handleTour: () => any;
-}
+export default class Tour extends React.Component<T.Props> {
+  static navigationOptions = {
+    tabBarVisible: false
+  };
 
 
-export default class Tour extends React.Component<Props> {
+  _onSkip =() => {
+    this.props.handleTourState();
+    this.props.navigation.navigate('Home');
+  }
+
   render(){
     return (
       <Swiper 
         showsButtons={true}
         prevButton={
-          <TouchableOpacity onPress={this.props.handleTour} >
+          <TouchableOpacity onPress={this._onSkip} >
             <Text>Skip</Text>
           </TouchableOpacity>
         }
@@ -37,7 +41,7 @@ export default class Tour extends React.Component<Props> {
         <View style={styles.slide}>
           <View >
             <Image
-              source={require('./images/edgar-castrejon-459822-unsplash.jpg')}
+              source={require('../images/edgar-castrejon-459822-unsplash.jpg')}
               style={{ width, height: 350}}
             />
           </View>
@@ -49,7 +53,7 @@ export default class Tour extends React.Component<Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('./images/aaron-burden-363695-unsplash.jpg')}
+              source={require('../images/aaron-burden-363695-unsplash.jpg')}
               style={{ width, height: 350}}
             />
           </View>
@@ -62,7 +66,7 @@ export default class Tour extends React.Component<Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('./images/baptist-standaert-346832-unsplash.jpg')}
+              source={require('../images/baptist-standaert-346832-unsplash.jpg')}
               style={{ width, height: 350}}
             />
           </View>

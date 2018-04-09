@@ -42,13 +42,40 @@ const styles: any = {
     ...ApplicationStyles.screen.mainContainer,
     backgroundColor: 'rgb(110, 119, 100)',
     alignItems: 'center',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-
+    flexWrap: 'wrap',
+    paddingTop: 10,
+  },
+  touchableContainer: {
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 18,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowRadius: 1,
+    shadowOpacity: 1.0 
+  },
+  catImageContainer: {
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+    overflow: 'hidden',
+  },
+  image: {
+    height: 100,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
   categorieText: {
     fontSize: 24,
-    backgroundColor: 'lightgrey',
+    fontWeight: 'bold',
+    color: 'rgb(84, 83, 69)',
+    backgroundColor: 'rgba(240, 230, 220, 0.25)',
+    width: 120,
+    //alignSelf: 'center'
   }
 };
 

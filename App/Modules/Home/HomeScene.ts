@@ -14,19 +14,13 @@ import { set_app_name, handleTourState, fetchData } from '../../Reducers/Home/Ho
 // Connect to redux.
 const mapStateToProps = (state: RootState) => {
   return {
-    home: state.home,
-    tourState: state.home.tourState,
-    soupData: state.home.soupData,
-    appetizerData: state.home.appetizerData,
-    dinnerData: state.home.dinnerData,
-    saladData: state.home.saladData,
-    dessertData: state.home.dessertData,
+    tourTaken: state.home.tourTaken,
+    categoriesData: state.home.categoriesData,
   };
 };
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
   set_app_name,
-  handleTourState,
   fetchData,
 }, dispatch);
 

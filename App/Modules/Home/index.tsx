@@ -1,87 +1,119 @@
 import * as React from 'react';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import  Tour from './components/Tour';
-import CategoriesList from './components/Categories';
+import {
+  Text,
+  View,
+  ImageBackground,
+  FlatList,
+  RefreshControl,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
+import { HomeIndex as T } from '../types/appTypes';
 
-interface Props {
-  navigation: any;
-  home: any;
-  tourState: boolean;
-  soupData: any;
-  appetizerData: any,
-  dinnerData: any,
-  saladData: any,
-  dessertData: any,
-  set_app_name: () => any;
-  handleTourState: () => any;
-  fetchData: () => any;
-}
-
-interface State {
-  Mounted: boolean;
-}
 
 // Styles
 import styles from './HomeStyle';
 
-export default class Home extends React.Component<Props, State> {
-  constructor(props: Props) {
+const { width } = Dimensions.get('window');
+
+export default class Home extends React.Component<T.Props, T.State> {
+  static navigationOptions = {
+    gesturesEnabled: false
+  };
+
+  constructor(props: T.Props) {
     super(props);
     this.state = {
       Mounted: false,
+      isRefreshing: false,
     }
 
-    /** Bind Functions */
+    this._showTour();
 
+    /** Bind Functions */
     // Actions
+    this._onClickNavigate = this._onClickNavigate.bind(this);
+    this._onRefresh = this._onRefresh.bind(this);
   }
 
-  static navigationOptions = {
-    tabBarVisible: false
-  };
+  // determines whether Tour should be call or not.
+  _showTour() {
+    if (!this.props.tourTaken) {
+      this.props.navigation.navigate('Tour');
+    }    
+  }
 
 
   componentDidMount() {
-    this.props.handleTourState();
-    this.setState({ Mounted: true });
-    this.props.fetchData();
-  }
-
-  shouldComponentUpdate(nextProps:any , nextState: any):any {
-    if (this.state.Mounted && !nextProps.tourState) {
-      this.redirect();
-      return false;
+    if (!this.state.Mounted) {
+      this.setState({ Mounted: true });      
+      return this.props.fetchData();
     }
-    return true;
-
+    this.setState({ Mounted: true });
   }
 
-  // Actions
-  redirect() {
-    this.props.navigation.navigate('CategoriesList');
+
+  _onClickNavigate(name: string) {
+    this.props.navigation.navigate('ListRecipes', { name });
   }
 
+  
+  _onRefresh() {    
+    //this.props.handleRefreshing();
+    this.setState({ isRefreshing: true });
+    // fetch
+    this.props.fetchData()
+      .then(() => {
+        //this.props.handleRefreshing();
+        //console.log('after fetching data. categories = ', this.props.dinnerData);
+        this.setState({ isRefreshing: false });
+      });
+  }
+
+
+  _keyExtractor = (item: any) => {
+    return item.key;
+  }
+
+  _renderItem = ({item}: any) => {
+    return (
+      <TouchableOpacity
+        key={item.key}
+        style={styles.touchableContainer}
+        onPress={() => this._onClickNavigate(item.key)}
+      >
+        <View 
+          style={styles.catImageContainer}>
+          <ImageBackground
+            source={item.source}
+            style={[styles.image, { width: width - 20 }]}
+          >
+            <Text style={styles.categorieText}>{item.key}</Text>
+          </ImageBackground>
+        </View>
+      </TouchableOpacity>
+    );
+  }  
+  
 
   render() {
     return (
-      <View style={styles.container} >
-        {this.props.tourState && <Tour handleTour={this.props.handleTourState}/>}
-      </View>
+      <View style={styles.categoriesContainer}>
+        {this.props.tourTaken ?
+          <FlatList 
+            data={this.props.categoriesData}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.isRefreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          /> :
+          null
+        }        
+    </View> 
     );
   }
 }
-
-
-
-/*
-<Text style={styles.instructions} >
-          To get started, edit App.js
-      </Text>
-        <Text style={styles.instructions} >
-          {instructions}
-        </Text>
-        <TouchableOpacity style={styles.buttonBase} onPress={this.onClickNavigate} >
-          <Text>{`Navigate`}</Text>
-        </TouchableOpacity>
-
-*/

@@ -1,19 +1,11 @@
 import * as React from 'react';
 import { Text, View, TouchableOpacity, Dimensions } from 'react-native';
-
-// Libraries
 import { NavigationActions } from 'react-navigation';
-
-// App Modules
 import Header from '../../Comps/Header';
-
-// Styles
 import styles from './SearchViewStyle';
+import { NavigationProps as Props } from '../types/appTypes'
 
-// Interface
-interface Props {
-  navigation: any;
-}
+
 
 const { width } = Dimensions.get('window');
 

@@ -1,30 +1,22 @@
 import * as React from 'react';
 import {
-  StyleSheet,
   Text,
   View,
   Dimensions,
   FlatList,
   TouchableOpacity
 } from 'react-native';
+import { NavigationProps as Props } from '../types/appTypes'
 
-// Libraries
-import { NavigationActions } from 'react-navigation';
-
-// App Modules
+import { NavigationActions } from 'react-navigation'; // Libraries
 import Header from '../../Comps/Header';
-
-
 import styles from './ListRecipesStyle';
 
-interface Props {
-  navigation: any;
-}
 
 const { width } = Dimensions.get('window');
 
 export default class ListRecipes extends React.Component<Props> {
-  constructor(props: any) {
+  constructor(props: Props) {
     super(props);
 
     /** Bind Functions */
@@ -46,7 +38,6 @@ export default class ListRecipes extends React.Component<Props> {
     this.props.navigation.navigate('RecipeDetails');
   }
   _keyExtractor = (item: any) => {
-    console.log('keyExractor = ', item.key);  
     return item.key;
   }
 

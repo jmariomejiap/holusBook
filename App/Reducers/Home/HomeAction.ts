@@ -11,6 +11,7 @@ const UPDATE_APPETIZER_DATA = 'UPDATE_APPETIZER_DATA';
 const UPDATE_DINNER_DATA = 'UPDATE_DINNER_DATA';
 const UPDATE_SALAD_DATA = 'UPDATE_SALAD_DATA';
 const UPDATE_DESSERT_DATA = 'UPDATE_DESSERT_DATA';
+const DATA_REFRESHING = 'DATA_REFRESHING';
 
 
 export type Actions = {
@@ -29,6 +30,8 @@ interface RecipeContent {
 export const set_app_name = (value: string): Action => ({ type: SET_APP_NAME, value });
 
 export const handleTourState = (): Action => ({ type: TOUR_STATE });
+
+export const handleRefreshing = (): Action => ({ type: DATA_REFRESHING })
 
 export const updateSoupData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_SOUP_DATA, value: arrRecipes });
 
@@ -80,4 +83,5 @@ export {
   UPDATE_DINNER_DATA,
   UPDATE_SALAD_DATA,
   UPDATE_DESSERT_DATA,
+  DATA_REFRESHING,
 };

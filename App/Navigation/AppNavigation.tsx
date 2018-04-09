@@ -4,7 +4,8 @@ import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 
 // components
 import Home from '../Modules/Home/HomeScene';
-import CategoriesList from '../Modules/Home/components/Categories'
+import Tour from '../Modules/Home/components/Tour/TourScene';
+
 import ListRecipes from '../Modules/ListRecipes/ListRecipesScene';
 import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';
 import SearchView from '../Modules/SearchView/SearchViewScene';
@@ -12,13 +13,13 @@ import FavoritesView from '../Modules/FavoritesView/FavoritesViewScene';
 
 const HomeStack = StackNavigator({
   Home: { screen: Home },
-  CategoriesList: { screen: CategoriesList },
   ListRecipes: { screen: ListRecipes },
-  RecipeDetails: { screen: RecipeDetails }
+  RecipeDetails: { screen: RecipeDetails },
+  Tour: { screen: Tour }
 },
 {
   initialRouteName: 'Home',
-  headerMode: 'none'
+  headerMode: 'none',
 });
 
 const SearchStack = StackNavigator({

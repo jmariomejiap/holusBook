@@ -11,27 +11,45 @@ import {
   UPDATE_DINNER_DATA,
   UPDATE_SALAD_DATA,
   UPDATE_DESSERT_DATA,
+  DATA_REFRESHING,
 } from './HomeAction';
+
+interface Cat {
+  [key: string]: any;
+}
 
 // Type
 type State = {
   appName: string,
-  tourState: boolean,
+  tourTaken: boolean,
   soupData: Array<any>;
   appetizerData: Array<any>;
   dinnerData: Array<any>;
   saladData: Array<any>;
   dessertData: Array<any>;
+  categoriesData: Array<Cat>;
+  isRefreshing: boolean;
 };
+
+// data to populate categoriesView
+const categories = [
+  { key: 'Soups', source: require('../../Modules/Home/components/catImages/Soups.jpg') },
+  { key: 'Appetizers', source: require('../../Modules/Home/components/catImages/Appetizers.jpg') },
+  { key: 'Dinner', source: require('../../Modules/Home/components/catImages/Dinner.jpg') },
+  { key: 'Salads', source: require('../../Modules/Home/components/catImages/Salads.jpg') },
+  { key: 'Desserts', source: require('../../Modules/Home/components/catImages/Desserts.jpg') },
+];
 
 const inmutableState: State = {
   appName: '',
-  tourState: false,
+  tourTaken: false,
   soupData: [],
   appetizerData: [],
   dinnerData: [],
   saladData: [],
   dessertData: [],
+  categoriesData: categories,
+  isRefreshing: false,
 };
 
 const initialState = copyObject(inmutableState);
@@ -47,7 +65,7 @@ export default function reducer(state = initialState, action: Action) {
     case TOUR_STATE:
       return {
         ...state,
-        tourState: !state.tourState,
+        tourTaken: !state.tourTaken,
       }
     case UPDATE_SOUP_DATA:
       return {
@@ -78,6 +96,12 @@ export default function reducer(state = initialState, action: Action) {
         dessertData: [...action.value]
       }
       
+    case DATA_REFRESHING:
+      return {
+        ...state,
+        isRefreshing: !state.isRefreshing
+      }
+
     default:
       return state;
   }
