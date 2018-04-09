@@ -4,9 +4,10 @@ import {
   View,
   Dimensions,
   FlatList,
+  Image,
   TouchableOpacity
 } from 'react-native';
-import { NavigationProps as Props } from '../types/appTypes'
+import { ListRecipesView as T } from '../types/appTypes'
 
 import { NavigationActions } from 'react-navigation'; // Libraries
 import Header from '../../Comps/Header';
@@ -15,8 +16,8 @@ import styles from './ListRecipesStyle';
 
 const { width } = Dimensions.get('window');
 
-export default class ListRecipes extends React.Component<Props> {
-  constructor(props: Props) {
+export default class ListRecipes extends React.Component<T.Props> {
+  constructor(props: T.Props) {
     super(props);
 
     /** Bind Functions */
@@ -34,9 +35,33 @@ export default class ListRecipes extends React.Component<Props> {
     this.props.navigation.dispatch(backAction);
   }
 
-  onClickNavigate(){
+  onClickNavigate() {
     this.props.navigation.navigate('RecipeDetails');
   }
+
+  _selectData(currentCategory: string) {
+    const { soups, appettizers, dinner, salads, desserts } = this.props;
+    switch (currentCategory) {
+      case 'Soups':
+        return soups;    
+      
+      case 'Appettizers':
+        return appettizers;    
+      
+      case 'Dinner':
+        return dinner;    
+      
+      case 'Salads':
+        return salads;   
+       
+      case 'Desserts':
+        return desserts;    
+
+      default:
+        break;
+    }
+  }
+
   _keyExtractor = (item: any) => {
     return item.key;
   }
@@ -49,8 +74,12 @@ export default class ListRecipes extends React.Component<Props> {
         style={styles.wrapper}   
       >
         <View style={styles.container}>
-          <View style={[styles.picture, { width }]} />
-          <Text style={styles.text}>Title place holder recipe {`${item.key}`}</Text>
+          <View style={styles.pictureContainer}>
+            <Image source={{ uri: item.media[0]}} style={[styles.picture, { width: width - 20 }]}/>
+          </View>
+          <View style={styles.titleContainer}>
+            <Text style={styles.text}>{`${item.title}`}</Text>
+          </View>
         </View>
       </TouchableOpacity>
     );
@@ -63,7 +92,7 @@ export default class ListRecipes extends React.Component<Props> {
       <View style={styles.mainContainer}>
         <Header navigation={this.props.navigation} title={name} />
         <FlatList
-          data={[{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}]}
+          data={this._selectData(name)}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />      

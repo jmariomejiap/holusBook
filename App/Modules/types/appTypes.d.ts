@@ -2,7 +2,7 @@ export namespace HomeIndex {
   export interface Props {
     navigation: any;
     tourTaken: boolean;
-    categoriesData: Array<ObjectKeysStringsAndValuesAny>;
+    categoriesData: Array<RecipeData>;
     set_app_name: () => any;
     fetchData: () => any;
   }
@@ -12,6 +12,7 @@ export namespace HomeIndex {
     isRefreshing: boolean;
   }
 }
+
 
 export namespace Tour {
   export interface Props {
@@ -26,6 +27,19 @@ export namespace FavoritesView {
   }
 }
 
+
+export namespace ListRecipesView {
+  export interface Props {
+    navigation: any;
+    soups: Array<RecipeData>;
+    appettizers: Array<RecipeData>;
+    dinner: Array<RecipeData>;
+    salads: Array<RecipeData>;
+    desserts: Array<RecipeData>;
+  }
+}
+
+
 // Super Generic object
 export interface ObjectKeysStringsAndValuesAny {
   [key:string]: any;
@@ -33,4 +47,15 @@ export interface ObjectKeysStringsAndValuesAny {
 
 export interface NavigationProps {
   navigation: any;
+}
+
+export interface RecipeData {
+  key: string;
+  title: string;
+  time: string;
+  portions: number;
+  category: string;
+  ingredients: Array<string>;
+  media: Array<string>;
+  directions: Array<string>;
 }

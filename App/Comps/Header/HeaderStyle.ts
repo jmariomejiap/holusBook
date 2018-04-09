@@ -8,7 +8,7 @@ const objectStyle: any = {
     ...ApplicationStyles.screen.centerElementsContainer,
     width: Metrics.screenWidth,
     height: Metrics.buttonHeight,
-    backgroundColor: 'rgb(110, 119, 100)',// Colors.transparent,
+    backgroundColor: 'rgb(110, 119, 100)',// 'rgb(110, 119, 100)',// Colors.transparent,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingTop: Metrics.baseMargin
