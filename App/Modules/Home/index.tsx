@@ -28,7 +28,7 @@ export default class Home extends React.Component<T.Props, T.State> {
       isRefreshing: false,
     }
 
-    this._showTour();
+    // this._showTour();
 
     /** Bind Functions */
     // Actions
@@ -37,14 +37,17 @@ export default class Home extends React.Component<T.Props, T.State> {
   }
 
   // determines whether Tour should be call or not.
-  _showTour() {
-    if (!this.props.tourTaken) {
-      this.props.navigation.navigate('Tour');
-    }    
-  }
+  // _showTour() {
+    // console.log('this.props = ', this.props);
+    // if (!this.props.tourTaken) {
+      // console.log('show tour going to navigate to tour');
+      // this.props.navigation.navigate('Tour');
+    // }    
+  // }
 
 
   componentDidMount() {
+    console.log('index props = ', this.props);
     if (!this.state.Mounted) {
       this.setState({ Mounted: true });      
       return this.props.fetchData();
@@ -98,21 +101,18 @@ export default class Home extends React.Component<T.Props, T.State> {
 
   render() {
     return (
-      <View style={styles.categoriesContainer}>
-        {this.props.tourTaken ?
-          <FlatList 
-            data={this.props.categoriesData}
-            keyExtractor={this._keyExtractor}
-            renderItem={this._renderItem}
-            refreshControl={
-              <RefreshControl
-                refreshing={this.state.isRefreshing}
-                onRefresh={this._onRefresh}
-              />
-            }
-          /> :
-          null
-        }        
+      <View style={styles.categoriesContainer}>        
+        <FlatList 
+          data={this.props.categoriesData}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.isRefreshing}
+              onRefresh={this._onRefresh}
+            />
+          }
+        />     
     </View> 
     );
   }

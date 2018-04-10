@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom, SwitchNavigator } from 'react-navigation';
 
 // components
 import Home from '../Modules/Home/HomeScene';
@@ -11,11 +11,21 @@ import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';
 import SearchView from '../Modules/SearchView/SearchViewScene';
 import FavoritesView from '../Modules/FavoritesView/FavoritesViewScene';
 
+// new
+import LoadingScreen from '../Modules/Home/LoadingApp';
+
+const TourStack = StackNavigator({
+  Tour: { screen: Tour },
+},
+{ 
+  headerMode: 'none',
+});
+
 const HomeStack = StackNavigator({
   Home: { screen: Home },
   ListRecipes: { screen: ListRecipes },
   RecipeDetails: { screen: RecipeDetails },
-  Tour: { screen: Tour }
+  // Tour: { screen: Tour }
 },
 {
   initialRouteName: 'Home',
@@ -83,6 +93,21 @@ const PrimaryNav = TabNavigator(
 
 
 
+const SwitchNav = SwitchNavigator(
+  {
+    LoadingApp: LoadingScreen,
+    App: PrimaryNav,
+    Tour: TourStack,
+  },
+  {
+    initialRouteName: 'LoadingApp',
+  }
+);
+
+
+
+
+
 
 // Manifest of possible screens
 // const PrimaryNav = StackNavigator(
@@ -102,4 +127,5 @@ const PrimaryNav = TabNavigator(
     /** navigationOptions: { gesturesEnabled: false }, */
 //  });
 
-export default PrimaryNav;
+// export default PrimaryNav;
+export default SwitchNav;
