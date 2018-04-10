@@ -14,7 +14,6 @@ import { set_app_name, handleTourState, fetchData } from '../../Reducers/Home/Ho
 // Connect to redux.
 const mapStateToProps = (state: RootState) => {
   return {
-    tourTaken: state.home.tourTaken,
     categoriesData: state.home.categoriesData,
   };
 };
