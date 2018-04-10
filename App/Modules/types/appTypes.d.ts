@@ -32,7 +32,7 @@ export namespace ListRecipesView {
   export interface Props {
     navigation: any;
     soups: Array<RecipeData>;
-    appettizers: Array<RecipeData>;
+    appetizers: Array<RecipeData>;
     dinner: Array<RecipeData>;
     salads: Array<RecipeData>;
     desserts: Array<RecipeData>;

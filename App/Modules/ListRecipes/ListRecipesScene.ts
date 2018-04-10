@@ -14,7 +14,7 @@ import { Dispatch } from '../../Redux/types';
 const mapStateToProps = (state: RootState) => { 
   return {
     soups: state.home.soupData,
-    appettizers: state.home.soupData,
+    appetizers: state.home.soupData,
     dinner: state.home.dinnerData,
     salads: state.home.saladData,
     desserts: state.home.dessertData,

@@ -40,13 +40,13 @@ export default class ListRecipes extends React.Component<T.Props> {
   }
 
   _selectData(currentCategory: string) {
-    const { soups, appettizers, dinner, salads, desserts } = this.props;
+    const { soups, appetizers, dinner, salads, desserts } = this.props;
     switch (currentCategory) {
       case 'Soups':
         return soups;    
       
-      case 'Appettizers':
-        return appettizers;    
+      case 'Appetizers':
+        return appetizers;    
       
       case 'Dinner':
         return dinner;    
