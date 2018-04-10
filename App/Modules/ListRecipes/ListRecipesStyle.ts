@@ -21,6 +21,11 @@ const styles: any = {
   pictureContainer: {
     height: 230,
     zIndex: 1,
+    // borderBottomLeftRadius: 5,
+    // borderBottomRightRadius: 5,
+    // borderTopLeftRadius: 5,
+    // borderTopRightRadius: 5,
+    // overflow: 'hidden',
     shadowColor: '#000000',
     shadowOffset: {
       width: 2,
@@ -32,10 +37,10 @@ const styles: any = {
   },
   picture: {
     height: 230,
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    // borderBottomLeftRadius: 8,
+    // borderBottomRightRadius: 8,
+    // borderTopLeftRadius: 8,
+    // borderTopRightRadius: 8,
   },
   titleContainer: {
     marginHorizontal: 15,
