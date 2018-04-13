@@ -39,6 +39,13 @@ export namespace ListRecipesView {
   }
 }
 
+export namespace RecipeDetailsView {
+  export interface Props {
+    navigation: any;
+    // recipe: RecipeData;
+  }
+}
+
 
 // Super Generic object
 export interface ObjectKeysStringsAndValuesAny {

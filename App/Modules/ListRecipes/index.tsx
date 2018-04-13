@@ -7,7 +7,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-import { ListRecipesView as T } from '../types/appTypes'
+import { ListRecipesView as T, RecipeData } from '../types/appTypes'
 
 import { NavigationActions } from 'react-navigation'; // Libraries
 import Header from '../../Comps/Header';
@@ -35,8 +35,9 @@ export default class ListRecipes extends React.Component<T.Props> {
     this.props.navigation.dispatch(backAction);
   }
 
-  onClickNavigate() {
-    this.props.navigation.navigate('RecipeDetails');
+  onClickNavigate(recipe: RecipeData) {
+    console.log('onClickNavigate recipe = ', recipe);
+    this.props.navigation.navigate('RecipeDetails', { recipe });
   }
 
   _selectData(currentCategory: string) {
@@ -67,10 +68,11 @@ export default class ListRecipes extends React.Component<T.Props> {
   }
 
   _renderItem = ({item}: any) => {
+
     return (
       <TouchableOpacity
         key={item.key}    
-        onPress={this.onClickNavigate}     
+        onPress={() => this.onClickNavigate(item)}     
         style={styles.wrapper}   
       >
         <View style={styles.container}>
