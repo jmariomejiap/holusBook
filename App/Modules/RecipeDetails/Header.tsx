@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -55,12 +55,12 @@ export default class RecipeHeader extends React.Component<Props, {}> {
     
   }
 
-  /** Render Functions */
+  /** Render Functions */ // <Icon name='keyboard-arrow-left' size={25} color={'snow'} />
   backButtonComp() {
     return (
       <TouchableOpacity style={[styles.barButtons ]} onPress={this.onPressBtnLeft}>
         <View style={styles.buttonContainer}>
-          <Icon name='keyboard-arrow-left' size={25} color={'snow'} />
+          <Image source={require('../../Assets/images/back_circle_button.png')} style={{ width: 40, height: 40 }}/>
         </View>
       </TouchableOpacity>
     );

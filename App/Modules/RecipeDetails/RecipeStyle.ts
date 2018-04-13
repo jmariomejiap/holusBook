@@ -30,15 +30,9 @@ const styles: any = {
   recipeTitle: {
     fontSize: 24,
     textAlign: 'center',
-    height: 110,
-    paddingTop: 15,
-    color: 'rgb(90, 100, 80)'
-  },
-  descriptionText: {
-    flex: 1,
-    backgroundColor: 'lightblue',
-    paddingHorizontal: 20,
-    paddingBottom: 10,
+    paddingVertical: 40,
+    color: 'rgb(90, 100, 80)',
+    fontFamily: 'HoeflerText-Regular',
   },
   text: {
     fontSize: 16,
@@ -59,7 +53,49 @@ const styles: any = {
     },
     shadowRadius: 3,
     shadowOpacity: 0.5,
+  },
+  indicatorMainContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+  },
+  indicatorIconContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: 95
+  },
+  indicatorIcon: { 
+    width: 28,
+    height: 28,
+    backgroundColor: 'rgb(154, 174, 87)',
+    borderRadius: 45,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  indicatorText: {
+    fontFamily: 'HoeflerText-Regular',
+    fontSize: 14,
+  },
+  ingredientsMainContainer: {
+    paddingHorizontal: 30,
+    paddingTop: 10,
+  },
+  ingredientsTitle: {
+    fontFamily: 'CircularStd-Book',
+    fontSize: 14,
+  },
+  ingredientsContainer: {
+    padding: 10,
+  },
+  ingredientText: {
+    fontFamily: 'HoeflerText-Regular',
+    fontSize: 13,
+    padding: 5,
   }
+
 };
 
 export default StyleSheet.create(styles);

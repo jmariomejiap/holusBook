@@ -34,6 +34,15 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B389C76C0FA14962B5A40B39 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0097ACCAD089431792BDCC1D /* EvilIcons.ttf */; };
 		C9A3787F2E874CA79E8157FA /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8314C2D2C928401BA7A63A25 /* SimpleLineIcons.ttf */; };
+		781CE432F6244F5F82173346 /* CircularStd-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 800F3E8F38264C138AC0DE1E /* CircularStd-Black.otf */; };
+		4591027771BE4AA09225F119 /* CircularStd-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C981D44C31B4499782DD2D0E /* CircularStd-BlackItalic.otf */; };
+		2E8045782BCE4C5D9E8C5720 /* CircularStd-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32A7461817E5404890351E4C /* CircularStd-Bold.otf */; };
+		913A9E0F42FF451D82D2CD96 /* CircularStd-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4D0F80A76E2C4C169FCD78BB /* CircularStd-BoldItalic.otf */; };
+		8E73EA68012B4C69871D0212 /* CircularStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 176D33238DB7482E9E474B80 /* CircularStd-Book.otf */; };
+		F8F7D1D225AE43AFA58DC993 /* CircularStd-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8C7FFC62984B4AD3B7A1BA71 /* CircularStd-BookItalic.otf */; };
+		46A33384E8EA4367869E3305 /* CircularStd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 178B8A7D31014A9DA7C3DBD8 /* CircularStd-Medium.otf */; };
+		E352C21854BD4F3EB95F2CA2 /* CircularStd-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D54CC3D7D9B34F5584B364C7 /* CircularStd-MediumItalic.otf */; };
+		4D4FD05959874381BA4F1AB3 /* HoeflerText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06858304C44E45F0B90CEC12 /* HoeflerText-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +336,15 @@
 		EAA07247ACC94C4EB0609E06 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		EB9EE86E71974BF9959E7782 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		FFDEF59194F841D88925C827 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		800F3E8F38264C138AC0DE1E /* CircularStd-Black.otf */ = {isa = PBXFileReference; name = "CircularStd-Black.otf"; path = "../App/assets/Fonts/CircularStd-Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C981D44C31B4499782DD2D0E /* CircularStd-BlackItalic.otf */ = {isa = PBXFileReference; name = "CircularStd-BlackItalic.otf"; path = "../App/assets/Fonts/CircularStd-BlackItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		32A7461817E5404890351E4C /* CircularStd-Bold.otf */ = {isa = PBXFileReference; name = "CircularStd-Bold.otf"; path = "../App/assets/Fonts/CircularStd-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4D0F80A76E2C4C169FCD78BB /* CircularStd-BoldItalic.otf */ = {isa = PBXFileReference; name = "CircularStd-BoldItalic.otf"; path = "../App/assets/Fonts/CircularStd-BoldItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		176D33238DB7482E9E474B80 /* CircularStd-Book.otf */ = {isa = PBXFileReference; name = "CircularStd-Book.otf"; path = "../App/assets/Fonts/CircularStd-Book.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8C7FFC62984B4AD3B7A1BA71 /* CircularStd-BookItalic.otf */ = {isa = PBXFileReference; name = "CircularStd-BookItalic.otf"; path = "../App/assets/Fonts/CircularStd-BookItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		178B8A7D31014A9DA7C3DBD8 /* CircularStd-Medium.otf */ = {isa = PBXFileReference; name = "CircularStd-Medium.otf"; path = "../App/assets/Fonts/CircularStd-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D54CC3D7D9B34F5584B364C7 /* CircularStd-MediumItalic.otf */ = {isa = PBXFileReference; name = "CircularStd-MediumItalic.otf"; path = "../App/assets/Fonts/CircularStd-MediumItalic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		06858304C44E45F0B90CEC12 /* HoeflerText-Regular.otf */ = {isa = PBXFileReference; name = "HoeflerText-Regular.otf"; path = "../App/assets/Fonts/HoeflerText-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +587,15 @@
 				7C2C82CF9FC3433D8899F155 /* Octicons.ttf */,
 				8314C2D2C928401BA7A63A25 /* SimpleLineIcons.ttf */,
 				BA826304C4B3476AB6E525D2 /* Zocial.ttf */,
+				800F3E8F38264C138AC0DE1E /* CircularStd-Black.otf */,
+				C981D44C31B4499782DD2D0E /* CircularStd-BlackItalic.otf */,
+				32A7461817E5404890351E4C /* CircularStd-Bold.otf */,
+				4D0F80A76E2C4C169FCD78BB /* CircularStd-BoldItalic.otf */,
+				176D33238DB7482E9E474B80 /* CircularStd-Book.otf */,
+				8C7FFC62984B4AD3B7A1BA71 /* CircularStd-BookItalic.otf */,
+				178B8A7D31014A9DA7C3DBD8 /* CircularStd-Medium.otf */,
+				D54CC3D7D9B34F5584B364C7 /* CircularStd-MediumItalic.otf */,
+				06858304C44E45F0B90CEC12 /* HoeflerText-Regular.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -956,6 +983,15 @@
 				8512A75A15514157AB885758 /* Octicons.ttf in Resources */,
 				C9A3787F2E874CA79E8157FA /* SimpleLineIcons.ttf in Resources */,
 				03BF7A11BACC439790F7822E /* Zocial.ttf in Resources */,
+				781CE432F6244F5F82173346 /* CircularStd-Black.otf in Resources */,
+				4591027771BE4AA09225F119 /* CircularStd-BlackItalic.otf in Resources */,
+				2E8045782BCE4C5D9E8C5720 /* CircularStd-Bold.otf in Resources */,
+				913A9E0F42FF451D82D2CD96 /* CircularStd-BoldItalic.otf in Resources */,
+				8E73EA68012B4C69871D0212 /* CircularStd-Book.otf in Resources */,
+				F8F7D1D225AE43AFA58DC993 /* CircularStd-BookItalic.otf in Resources */,
+				46A33384E8EA4367869E3305 /* CircularStd-Medium.otf in Resources */,
+				E352C21854BD4F3EB95F2CA2 /* CircularStd-MediumItalic.otf in Resources */,
+				4D4FD05959874381BA4F1AB3 /* HoeflerText-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
