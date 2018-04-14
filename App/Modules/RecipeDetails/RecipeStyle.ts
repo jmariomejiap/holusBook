@@ -23,9 +23,20 @@ const styles: any = {
     overflow: 'hidden',
     width: Metrics.buttonBarWidth, // gives padding sides
   },
-  image: {
+  renderBackground: {
+    position: 'absolute',
+    top: 0,
     width: Metrics.screenWidth,
-    height: 320,
+  },
+  renderForeground: {
+    height: 300,
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  renderStickyHeader: {
+    width: 300,
+    justifyContent: 'flex-end',
   },
   recipeTitle: {
     fontSize: 24,
