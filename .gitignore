@@ -67,8 +67,5 @@ package-lock.json
 # tour images. Wating for compression!
 App/Modules/Home/components/images
 
-# categories images. Wating for compression!
-App/Modules/Home/components/catImages
-
 # assets. Waiting for selected options
 App/Assets
