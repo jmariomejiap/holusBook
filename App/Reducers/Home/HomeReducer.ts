@@ -40,11 +40,11 @@ type State = {
 
 // data to populate categoriesView
 const categories = [
-  { key: 'Soups', source: require('../../Modules/Home/components/catImages/Soups.jpg') },
-  { key: 'Appetizers', source: require('../../Modules/Home/components/catImages/Appetizers.jpg') },
-  { key: 'Dinner', source: require('../../Modules/Home/components/catImages/Dinner.jpg') },
-  { key: 'Salads', source: require('../../Modules/Home/components/catImages/Salads.jpg') },
-  { key: 'Desserts', source: require('../../Modules/Home/components/catImages/Desserts.jpg') },
+  { key: 'Soups', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Soups.jpg' },
+  { key: 'Appetizers', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Appetizers.jpg' },
+  { key: 'Dinner', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Dinner.jpg' },
+  { key: 'Salads', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Salads.jpg' },
+  { key: 'Desserts', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Desserts.jpg' },
 ];
 
 const inmutableState: State = {

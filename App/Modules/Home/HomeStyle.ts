@@ -71,11 +71,10 @@ const styles: any = {
   },
   categorieText: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: 'rgb(84, 83, 69)',
-    backgroundColor: 'rgba(240, 230, 220, 0.25)',
+    backgroundColor: 'transparent',
     width: 120,
-    //alignSelf: 'center'
+    fontFamily: 'CircularStd-Book',
   }
 };
 

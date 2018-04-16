@@ -79,6 +79,7 @@ export default class Home extends React.Component<T.Props, T.State> {
   }
 
   _renderItem = ({item}: any) => {
+    const whiteTitle = item.key === 'Dinner' ? { color: 'snow'} : null ;
     return (
       <TouchableOpacity
         key={item.key}
@@ -88,10 +89,10 @@ export default class Home extends React.Component<T.Props, T.State> {
         <View 
           style={styles.catImageContainer}>
           <ImageBackground
-            source={item.source}
+            source={{ uri: item.uri }}
             style={[styles.image, { width: width - 20 }]}
           >
-            <Text style={styles.categorieText}>{item.key}</Text>
+            <Text style={[styles.categorieText, whiteTitle]}>{item.key}</Text>
           </ImageBackground>
         </View>
       </TouchableOpacity>
