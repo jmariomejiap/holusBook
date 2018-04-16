@@ -1,46 +1,27 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-
 import { NavigationActions } from 'react-navigation';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
-// new icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// Styles
 import styles from './RecipeStyle';
-// import { Colors } from '../../Themes';
 
-// Interface
-interface Props {
-  navigation: any;
-}
+import { RecipeHeader as T } from '../types/appTypes'
 
-export default class RecipeHeader extends React.Component<Props, {}> {
 
+export default class RecipeHeader extends React.Component<T.Props, {}> {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
   };
 
-  constructor(props: any) {
+  constructor(props: T.Props) {
     super(props);
 
-    // Render Functions
-    this.backButtonComp = this.backButtonComp.bind(this);
-    this.favoriteButtonComp = this.favoriteButtonComp.bind(this);
-
     // Actions
-    this.onPressTitle = this.onPressTitle.bind(this);
     this.onPressBtnLeft = this.onPressBtnLeft.bind(this);
-    this.onPressBtnRight = this.onPressBtnRight.bind(this);
   }
 
   /** Actions */
-  onPressTitle() {
-    // TODO
-  }
-
+  
   onPressBtnLeft() {
     const navigation = this.props.navigation;
     const backAction = NavigationActions.back({
@@ -50,40 +31,22 @@ export default class RecipeHeader extends React.Component<Props, {}> {
     navigation.dispatch(backAction);
   }
 
-  onPressBtnRight() {
-    // TODO
-    
-  }
-
-  /** Render Functions */ // <Icon name='keyboard-arrow-left' size={25} color={'snow'} />
-  backButtonComp() {
-    return (
-      <TouchableOpacity style={[styles.barButtons ]} onPress={this.onPressBtnLeft}>
-        <View style={styles.buttonContainer}>
-          <Image source={require('../../Assets/images/back_circle_button.png')} style={{ width: 40, height: 40 }}/>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-
-  favoriteButtonComp() {
-    let focused = false;
-    let iconName = `ios-heart${focused ? '' : '-outline'}`;
-    return (
-      <TouchableOpacity style={[styles.barButtons ]} onPress={this.onPressBtnRight}>
-        <View style={styles.buttonContainer}>
-          <Ionicons name={iconName} size={20} color={'snow'} />
-        </View>
-      </TouchableOpacity>
-    );
-  }
-
   render() {
+    let iconName = `ios-heart${this.props.buttonState ? '' : '-outline'}`;
+    let dynamicColor = this.props.buttonState ? { backgroundColor: 'orange' } : null;
     return (  
       <View style={styles.container}>
-        {this.backButtonComp()}
-        
-        {this.favoriteButtonComp()}
+        <TouchableOpacity style={[styles.barButtons ]} onPress={this.onPressBtnLeft}>
+          <View style={styles.buttonContainer}>
+            <Image source={require('../../Assets/images/back_circle_button.png')} style={{ width: 40, height: 40 }}/>
+          </View>
+        </TouchableOpacity>
+  
+        <TouchableOpacity style={[styles.barButtons,  ]} onPress={this.props.onSelection}>
+          <View style={[styles.buttonContainer, dynamicColor]}>
+            <Ionicons name={iconName} size={20} color={this.props.buttonState ? 'white' : 'rgb(84, 96, 67)'} />
+          </View>
+        </TouchableOpacity>
       </View >
     );
   }

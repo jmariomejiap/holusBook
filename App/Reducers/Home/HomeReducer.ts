@@ -1,6 +1,7 @@
 // App Modules
 import { copyObject } from '../../Utils/objectUtils';
 import { Action } from '../../Redux/types';
+import { RecipeData } from '../Home/../../Modules/types/appTypes';
 
 // Constants
 import {
@@ -12,6 +13,10 @@ import {
   UPDATE_SALAD_DATA,
   UPDATE_DESSERT_DATA,
   DATA_REFRESHING,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+  FAVORITE_SELECTED,
+  RESET_FAVORITE_SELECTED,
 } from './HomeAction';
 
 interface Cat {
@@ -22,13 +27,15 @@ interface Cat {
 type State = {
   appName: string,
   tourTaken: boolean,
-  soupData: Array<any>;
-  appetizerData: Array<any>;
-  dinnerData: Array<any>;
-  saladData: Array<any>;
-  dessertData: Array<any>;
-  categoriesData: Array<Cat>;
+  soupData: Array<RecipeData>
+  appetizerData: Array<RecipeData>;
+  dinnerData: Array<RecipeData>;
+  saladData: Array<RecipeData>;
+  dessertData: Array<RecipeData>;
+  categoriesData: Array<any>;
   isRefreshing: boolean;
+  favorites: Array<RecipeData>;
+  isFavoriteSelected: boolean;
 };
 
 // data to populate categoriesView
@@ -50,6 +57,8 @@ const inmutableState: State = {
   dessertData: [],
   categoriesData: categories,
   isRefreshing: false,
+  favorites: [],
+  isFavoriteSelected: false,
 };
 
 const initialState = copyObject(inmutableState);
@@ -67,11 +76,13 @@ export default function reducer(state = initialState, action: Action) {
         ...state,
         tourTaken: !state.tourTaken,
       }
+
     case UPDATE_SOUP_DATA:
       return {
         ...state,
         soupData: [...action.value]
       }
+
     case UPDATE_APPETIZER_DATA:
       return {
         ...state,
@@ -100,6 +111,30 @@ export default function reducer(state = initialState, action: Action) {
       return {
         ...state,
         isRefreshing: !state.isRefreshing
+      }
+
+    case RESET_FAVORITE_SELECTED:
+      return {
+        ...state,
+        isFavoriteSelected: false,
+      }
+
+    case FAVORITE_SELECTED:
+      return {
+        ...state,
+        isFavoriteSelected: true,
+      }
+
+    case ADD_FAVORITE:
+      return {
+        ...state,
+        favorites: [...state.favorites, action.value],
+      }
+
+    case REMOVE_FAVORITE:
+      return {
+        ...state,
+        favorites: state.favorites.filter((recipe: RecipeData ) => recipe.key !== action.value.key)
       }
 
     default:

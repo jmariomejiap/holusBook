@@ -4,18 +4,12 @@ import {
   View,
   FlatList
 } from 'react-native';
-import { RecipeDetailsView as T } from '../types/appTypes'
+import { ListDetailGen as T } from '../types/appTypes'
 
 import styles from './RecipeStyle';
 
 
-interface Props {
-  name: string;
-  data: Array<string>;
-  bigger?: boolean;
-}
-
-export default class ListDetailsGen extends React.Component<Props> {
+export default class ListDetailsGen extends React.Component<T.Props> {
   
   _getData(name: string, data: Array<string>) {
     return data.map((ingr: string , index: number) => { 

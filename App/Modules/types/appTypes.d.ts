@@ -42,15 +42,33 @@ export namespace ListRecipesView {
 export namespace RecipeDetailsView {
   export interface Props {
     navigation: any;
-    // recipe: RecipeData;
+    isFavoriteSelected: boolean;
+    favorites: Array<RecipeData>;
+    addFavorite: (RecipeData: RecipeData) => any;
+    removeFavorite: (RecipeData: RecipeData) => any;
+    handleFavoriteOn: () => any;
+    handleResetFavorite: () => any;
   }
 }
 
 
-// Super Generic object
-export interface ObjectKeysStringsAndValuesAny {
-  [key:string]: any;
+export namespace RecipeHeader {
+  interface Props {
+    navigation: any;
+    buttonState: boolean;
+    onSelection: () => any;
+  }
 }
+
+
+export namespace ListDetailGen {
+  interface Props {
+    name: string;
+    data: Array<string>;
+    bigger?: boolean;
+  }
+}
+
 
 export interface NavigationProps {
   navigation: any;

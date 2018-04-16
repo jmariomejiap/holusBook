@@ -9,12 +9,21 @@ import { RootState } from '../../Redux/rootReducers';
 import { Dispatch } from '../../Redux/types';
 
 // Actions.
+import { addFavorite, removeFavorite, handleFavoriteOn, handleResetFavorite } from '../../Reducers/Home/HomeAction';
 
 // Connect to redux.
-const mapStateToProps = ({ }) => { };
+const mapStateToProps = (state: RootState) => {
+  return {
+    isFavoriteSelected: state.home.isFavoriteSelected,
+    favorites: state.home.favorites,
+  }
+ };
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-
+  addFavorite,
+  removeFavorite,
+  handleFavoriteOn,
+  handleResetFavorite
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(RecipeDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeDetails);

@@ -35,10 +35,11 @@ export default class ListRecipes extends React.Component<T.Props> {
     this.props.navigation.dispatch(backAction);
   }
 
+
   onClickNavigate(recipe: RecipeData) {
-    console.log('onClickNavigate recipe = ', recipe);
     this.props.navigation.navigate('RecipeDetails', { recipe });
   }
+
 
   _selectData(currentCategory: string) {
     const { soups, appetizers, dinner, salads, desserts } = this.props;
@@ -67,39 +68,38 @@ export default class ListRecipes extends React.Component<T.Props> {
     return item.key;
   }
 
-  _renderItem = ({item}: any) => {
-
-    return (
-      <TouchableOpacity
-        key={item.key}    
-        onPress={() => this.onClickNavigate(item)}     
-        style={styles.wrapper}   
-      >
-        <View style={styles.container}>
-          <View style={styles.pictureContainer}>
-            <Image source={{ uri: item.media[0]}} style={[styles.picture, { width: width - 20 }]}/>
-          </View>
-          <View style={styles.titleContainer}>
-            <Text style={styles.text}>{`${item.title}`}</Text>
-          </View>
+  _renderItem = ({item}: any) => (
+    <TouchableOpacity
+      key={item.key}    
+      onPress={() => this.onClickNavigate(item)}     
+      style={styles.wrapper}   
+    >
+      <View style={styles.container}>
+        <View style={styles.pictureContainer}>
+          <Image source={{ uri: item.media[0]}} style={[styles.picture, { width: width - 20 }]}/>
         </View>
-      </TouchableOpacity>
-    );
-  }  
+        <View style={styles.titleContainer}>
+          <Text style={styles.text}>{`${item.title}`}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
+  ) 
+
+
 
   render(){
-    const { name } = this.props.navigation.state.params;
+    const { navigation } = this.props;
+    const { name } = navigation.state.params;
 
     return (
       <View style={styles.mainContainer}>
-        <Header navigation={this.props.navigation} title={name} />
+        <Header navigation={navigation} title={name} />
         <FlatList
           data={this._selectData(name)}
           keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />      
       </View>
-      
     );
   }
 }

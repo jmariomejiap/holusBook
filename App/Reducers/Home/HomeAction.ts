@@ -12,6 +12,10 @@ const UPDATE_DINNER_DATA = 'UPDATE_DINNER_DATA';
 const UPDATE_SALAD_DATA = 'UPDATE_SALAD_DATA';
 const UPDATE_DESSERT_DATA = 'UPDATE_DESSERT_DATA';
 const DATA_REFRESHING = 'DATA_REFRESHING';
+const ADD_FAVORITE = 'ADD_FAVORITE';
+const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
+const FAVORITE_SELECTED = 'FAVORITE_SELECTED';
+const RESET_FAVORITE_SELECTED = 'RESET_FAVORITE_SELECTED';
 
 
 export type Actions = {
@@ -43,6 +47,13 @@ export const updateSaladData = (arrRecipes: Array<RecipeContent> ): Action => ({
 
 export const updateDessertData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_DESSERT_DATA, value: arrRecipes });
 
+export const addFavorite = (recipeObj: RecipeContent): Action => ({ type: ADD_FAVORITE, value: recipeObj });
+
+export const removeFavorite = (recipeObj: RecipeContent): Action => ({ type: REMOVE_FAVORITE, value: recipeObj });
+
+export const handleFavoriteOn = (): Action => ({ type: FAVORITE_SELECTED });
+
+export const handleResetFavorite = (): Action => ({ type: RESET_FAVORITE_SELECTED });
 
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
@@ -84,4 +95,8 @@ export {
   UPDATE_SALAD_DATA,
   UPDATE_DESSERT_DATA,
   DATA_REFRESHING,
+  ADD_FAVORITE,
+  REMOVE_FAVORITE,
+  FAVORITE_SELECTED,
+  RESET_FAVORITE_SELECTED,
 };
