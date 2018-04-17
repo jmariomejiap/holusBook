@@ -11,16 +11,18 @@ export default class SearchView extends React.Component<T.Props, {}> {
     super(props);
 
     /** Bind Functions */
+    this.onClickNavigate = this.onClickNavigate.bind(this);
     this._onClear = this._onClear.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
     this._searchData = this._searchData.bind(this);
-    // Actions
-    
+    this._renderItem = this._renderItem.bind(this); 
   }
 
-  // Actions
+  onClickNavigate(recipe: RecipeData) {
+    this.props.navigation.navigate('RecipeDetails', { recipe });
+  }
 
-  _searchData(data: Array<any>, searchInput: string) {
+  _searchData(data: Array<RecipeData>, searchInput: string) {
     return data.filter((objRecipe) => {
       const objRecipeTitle = objRecipe.title.toLowerCase();
       const text = searchInput.toLocaleLowerCase();
@@ -42,15 +44,20 @@ export default class SearchView extends React.Component<T.Props, {}> {
 
   _renderItem({item}: any) {
     return(
-      <View style={styles.itemContainer}>
-        <View>
-          <Image source={{ uri: item.media[0]}} style={{ height: 75, width: 75 }}/>
-        </View>
-        <View style={styles.itemLabels}>
-          <Text style={styles.itemTitle}>{item.title}</Text>
-          <Text style={styles.itemCategory}>{item.category}</Text>
-        </View>        
-      </View>      
+      <TouchableOpacity
+        key={item.key}
+        onPress={() => this.onClickNavigate(item)}     
+      >
+        <View style={styles.itemContainer}>
+          <View>
+            <Image source={{ uri: item.media[0]}} style={{ height: 75, width: 75 }}/>
+          </View>
+          <View style={styles.itemLabels}>
+            <Text style={styles.itemTitle}>{item.title}</Text>
+            <Text style={styles.itemCategory}>{item.category}</Text>
+          </View>        
+        </View>      
+      </TouchableOpacity>
     )
   }
 
@@ -94,9 +101,3 @@ export default class SearchView extends React.Component<T.Props, {}> {
     );
   }
 }
-
-/*
-<TouchableOpacity style={styles.buttonBase} onPress={this.onClickGoBack}>
-  <Text>{`Go back`}</Text>
-</TouchableOpacity>
-*/

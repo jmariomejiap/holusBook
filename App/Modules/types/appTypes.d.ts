@@ -75,6 +75,7 @@ export namespace SearchView {
     searchInput: string;
     allData: Array<RecipeData>;
     handleSearchInput: (text: string ) => any;
+    navigation: any;
   }
 }
 
