@@ -63,8 +63,8 @@ export const fetchData = () => {
         const appetizers = filterCategory(data, 'appetizer');
         const dinners = filterCategory(data, 'dinner');
         const salads = filterCategory(data, 'salad');
-        const desserts = filterCategory(data, 'dessert');
-        
+        const desserts = filterCategory(data, 'dessert');      
+
         dispatch(updateSoupData(soups));
         dispatch(updateAppetizersData(appetizers));
         dispatch(updateDinnerData(dinners));

@@ -36,18 +36,8 @@ export default class Home extends React.Component<T.Props, T.State> {
     this._onRefresh = this._onRefresh.bind(this);
   }
 
-  // determines whether Tour should be call or not.
-  // _showTour() {
-    // console.log('this.props = ', this.props);
-    // if (!this.props.tourTaken) {
-      // console.log('show tour going to navigate to tour');
-      // this.props.navigation.navigate('Tour');
-    // }    
-  // }
-
 
   componentDidMount() {
-    console.log('index props = ', this.props);
     if (!this.state.Mounted) {
       this.setState({ Mounted: true });      
       return this.props.fetchData();

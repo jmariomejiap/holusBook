@@ -64,8 +64,9 @@ package-lock.json
 **/*.js
 *.js.map
 
-# tour images. Wating for compression!
-App/Modules/Home/components/images
 
-# assets. Waiting for selected options
-App/Assets
+# assets Fonts. Waiting for selected options
+App/Assets/Fonts
+
+# assets Images, like Icons... Waiting for selected.
+App/Assets/images

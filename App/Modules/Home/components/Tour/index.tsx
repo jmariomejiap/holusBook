@@ -41,8 +41,8 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View >
             <Image
-              source={require('../images/edgar-castrejon-459822-unsplash.jpg')}
-              style={{ width, height: 350}}
+              source={require('../../../../Assets/tourImages/healthy.png')}
+              style={{ width, height: 380}}
             />
           </View>
           <View style={styles.textContainer}>
@@ -53,8 +53,8 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('../images/aaron-burden-363695-unsplash.jpg')}
-              style={{ width, height: 350}}
+              source={require('../../../../Assets/tourImages/greener.png')}
+              style={{ width, height: 380}}
             />
           </View>
           <View style={styles.textContainer}>
@@ -66,8 +66,8 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('../images/baptist-standaert-346832-unsplash.jpg')}
-              style={{ width, height: 350}}
+              source={require('../../../../Assets/tourImages/compassion.png')}
+              style={{ width, height: 380}}
             />
           </View>
           <View style={styles.textContainer}>
