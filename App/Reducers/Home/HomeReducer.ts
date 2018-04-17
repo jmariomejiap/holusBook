@@ -17,6 +17,8 @@ import {
   REMOVE_FAVORITE,
   FAVORITE_SELECTED,
   RESET_FAVORITE_SELECTED,
+  UPDATE_ALL_DATA,
+  SEARCH_INPUT,
 } from './HomeAction';
 
 interface Cat {
@@ -25,9 +27,10 @@ interface Cat {
 
 // Type
 type State = {
-  appName: string,
-  tourTaken: boolean,
-  soupData: Array<RecipeData>
+  appName: string;
+  tourTaken: boolean;
+  allData: Array<RecipeData>;
+  soupData: Array<RecipeData>;  
   appetizerData: Array<RecipeData>;
   dinnerData: Array<RecipeData>;
   saladData: Array<RecipeData>;
@@ -36,6 +39,7 @@ type State = {
   isRefreshing: boolean;
   favorites: Array<RecipeData>;
   isFavoriteSelected: boolean;
+  searchInput: string;
 };
 
 // data to populate categoriesView
@@ -50,6 +54,7 @@ const categories = [
 const inmutableState: State = {
   appName: '',
   tourTaken: false,
+  allData: [],
   soupData: [],
   appetizerData: [],
   dinnerData: [],
@@ -59,6 +64,7 @@ const inmutableState: State = {
   isRefreshing: false,
   favorites: [],
   isFavoriteSelected: false,
+  searchInput: '',
 };
 
 const initialState = copyObject(inmutableState);
@@ -75,6 +81,12 @@ export default function reducer(state = initialState, action: Action) {
       return {
         ...state,
         tourTaken: !state.tourTaken,
+      }
+    
+    case UPDATE_ALL_DATA:
+      return {
+        ...state,
+        allData: [...action.value]
       }
 
     case UPDATE_SOUP_DATA:
@@ -136,6 +148,13 @@ export default function reducer(state = initialState, action: Action) {
         ...state,
         favorites: state.favorites.filter((recipe: RecipeData ) => recipe.key !== action.value.key)
       }
+    
+    case SEARCH_INPUT:
+      return {
+        ...state,
+        searchInput: action.value,
+      }
+
 
     default:
       return state;

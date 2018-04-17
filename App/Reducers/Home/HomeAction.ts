@@ -6,6 +6,7 @@ import filterCategory from '../../Utils/filterCategory';
 // Constants
 const SET_APP_NAME = 'home/setAppName';
 const TOUR_STATE = 'TOUR_STATE';
+const UPDATE_ALL_DATA = 'UPDATE_ALL_DATA';
 const UPDATE_SOUP_DATA = 'UPDATE_SOUP_DATA';
 const UPDATE_APPETIZER_DATA = 'UPDATE_APPETIZER_DATA';
 const UPDATE_DINNER_DATA = 'UPDATE_DINNER_DATA';
@@ -16,6 +17,8 @@ const ADD_FAVORITE = 'ADD_FAVORITE';
 const REMOVE_FAVORITE = 'REMOVE_FAVORITE'
 const FAVORITE_SELECTED = 'FAVORITE_SELECTED';
 const RESET_FAVORITE_SELECTED = 'RESET_FAVORITE_SELECTED';
+const SEARCH_INPUT = 'SEARCH_INPUT';
+
 
 
 export type Actions = {
@@ -35,7 +38,9 @@ export const set_app_name = (value: string): Action => ({ type: SET_APP_NAME, va
 
 export const handleTourState = (): Action => ({ type: TOUR_STATE });
 
-export const handleRefreshing = (): Action => ({ type: DATA_REFRESHING })
+export const handleRefreshing = (): Action => ({ type: DATA_REFRESHING });
+
+export const updateAllData = (arrRecipes: Array<RecipeContent> ) => ({ type: UPDATE_ALL_DATA, value: arrRecipes })
 
 export const updateSoupData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_SOUP_DATA, value: arrRecipes });
 
@@ -55,6 +60,8 @@ export const handleFavoriteOn = (): Action => ({ type: FAVORITE_SELECTED });
 
 export const handleResetFavorite = (): Action => ({ type: RESET_FAVORITE_SELECTED });
 
+export const handleSearchInput = (value: string) => ({ type: SEARCH_INPUT, value })
+
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
     return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_data_new.json')
@@ -65,6 +72,7 @@ export const fetchData = () => {
         const salads = filterCategory(data, 'salad');
         const desserts = filterCategory(data, 'dessert');      
 
+        dispatch(updateAllData(data));
         dispatch(updateSoupData(soups));
         dispatch(updateAppetizersData(appetizers));
         dispatch(updateDinnerData(dinners));
@@ -99,4 +107,6 @@ export {
   REMOVE_FAVORITE,
   FAVORITE_SELECTED,
   RESET_FAVORITE_SELECTED,
+  UPDATE_ALL_DATA,
+  SEARCH_INPUT
 };

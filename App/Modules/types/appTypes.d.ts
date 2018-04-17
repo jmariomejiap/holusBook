@@ -70,6 +70,15 @@ export namespace ListDetailGen {
 }
 
 
+export namespace SearchView {
+  interface Props {
+    searchInput: string;
+    allData: Array<RecipeData>;
+    handleSearchInput: (text: string ) => any;
+  }
+}
+
+
 export interface NavigationProps {
   navigation: any;
 }

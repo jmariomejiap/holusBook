@@ -9,12 +9,18 @@ import { RootState } from '../../Redux/rootReducers';
 import { Dispatch } from '../../Redux/types';
 
 // Actions.
+import { handleSearchInput } from "../../Reducers/Home/HomeAction";
 
 // Connect to redux.
-const mapStateToProps = ({ }) => { };
+const mapStateToProps = (state: RootState) => { 
+  return {
+    allData: state.home.allData,
+    searchInput: state.home.searchInput,
+  }
+};
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
-
+  handleSearchInput,
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(SearchView);
+export default connect(mapStateToProps, mapDispatchToProps)(SearchView);
