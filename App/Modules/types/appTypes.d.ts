@@ -24,6 +24,7 @@ export namespace Tour {
 export namespace FavoritesView {
   export interface Props {
     navigation: any;
+    favorites: Array<RecipeData>;
   }
 }
 

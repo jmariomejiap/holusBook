@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // Styles
 import styles from './HeaderStyle';
@@ -58,7 +58,7 @@ export default class Header extends React.Component<Props, {}> {
 
     return (
       <TouchableOpacity style={styles.barButtons} onPress={this.onPressBtnLeft}>
-        <Icon name='keyboard-backspace' size={30} color={Colors.snow} />
+        <Icon name='ios-arrow-back-outline' size={25} color={Colors.snow} />
       </TouchableOpacity>
     );
   }
@@ -72,11 +72,13 @@ export default class Header extends React.Component<Props, {}> {
   }
 
   render() {
+    const title = this.props.title.toLocaleUpperCase();
+
     return (
       <View style={styles.container}>
         {this.buildHeaderLeft()}
         <TouchableOpacity onPress={this.onPressTitle}>
-          <Text style={[styles.title]}>{this.props.title}</Text>
+          <Text style={styles.title}>{title}</Text>
         </TouchableOpacity>
         {this.buildHeaderRight()}
       </View >

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackNavigator, TabNavigator, TabBarBottom, SwitchNavigator } from 'react-navigation';
 
@@ -65,20 +66,21 @@ const PrimaryNav = TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Categories') {
-          iconName = `ios-list${focused ? '' : '-outline'}`;
+          return (focused) ?
+            <Image source={require('../Assets/images/categories_selected.png')} style={{ width: 24, height: 24 }}/> :
+            <Image source={require('../Assets/images/categories.png')} style={{ width: 24, height: 24 }}/>
         } else if (routeName === 'Search') {
-          iconName = `ios-search${focused ? '' : '-outline'}`;
+          return (focused) ?
+            <Image source={require('../Assets/images/search_selected.png')} style={{ width: 24, height: 24 }}/> :
+            <Image source={require('../Assets/images/search.png')} style={{ width: 24, height: 24 }}/>
         } else if (routeName === 'Favorites') {
           iconName = `ios-heart${focused ? '' : '-outline'}`;
         }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'grey',
+      activeTintColor: 'rgb(148, 148, 0)',
       inactiveTintColor: 'gray',
       showLabel: false,
     },

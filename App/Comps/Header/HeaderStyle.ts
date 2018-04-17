@@ -21,7 +21,8 @@ const objectStyle: any = {
   },
   title: {
     ...ApplicationStyles.screen.baseTextTitle,
-    color: Colors.snow
+    color: Colors.snow,
+    fontFamily: 'HoeflerText-Regular',
   }
 };
 

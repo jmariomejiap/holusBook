@@ -12,10 +12,14 @@ import { Dispatch } from '../../Redux/types';
 // import { set_app_name, handleTourState } from '../../Reducers/Home/HomeAction';
 
 // Connect to redux.
-const mapStateToProps = ({ }) => {};
+const mapStateToProps = (state: RootState) => {
+  return {
+    favorites: state.home.favorites,
+  }
+};
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators({
 
 }, dispatch);
 
-export default connect(null, mapDispatchToProps)(FavoritesView);
+export default connect(mapStateToProps, mapDispatchToProps)(FavoritesView);

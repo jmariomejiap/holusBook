@@ -68,8 +68,6 @@ const styles: any = {
     color: 'lightgrey',
     fontSize: 12,
   }
-
-
 };
 
 export default StyleSheet.create(styles);

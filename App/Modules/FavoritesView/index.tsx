@@ -2,18 +2,17 @@ import * as React from 'react';
 import {
   Text,
   View,
+  Image,
+  FlatList,
   TouchableOpacity,
-  Dimensions
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import Header from '../../Comps/Header';
 import styles from './FavoritesViewStyle';
 
 // types
-import { FavoritesView as T } from '../types/appTypes';
+import { FavoritesView as T, RecipeData } from '../types/appTypes';
 
-
-const { width } = Dimensions.get('window');
 
 export default class FavoritesView extends React.Component<T.Props> {
   constructor(props: any) {
@@ -24,6 +23,7 @@ export default class FavoritesView extends React.Component<T.Props> {
     // Actions
     this.onClickGoBack = this.onClickGoBack.bind(this);
     this.onClickNavigate = this.onClickNavigate.bind(this);
+    this._renderItem = this._renderItem.bind(this);
   }
 
   // Actions
@@ -34,22 +34,43 @@ export default class FavoritesView extends React.Component<T.Props> {
     this.props.navigation.dispatch(backAction);
   }
 
-  onClickNavigate() {
-    this.props.navigation.navigate('RecipeDetails');
+  onClickNavigate(recipe: RecipeData) {
+    this.props.navigation.navigate('RecipeDetails', { recipe });
   }
   
+  _keyExtractor = (item: any) => {
+    return item.key;
+  }
+
+  _renderItem({item}: any) {
+    return(
+      <TouchableOpacity
+        key={item.key}
+        onPress={() => this.onClickNavigate(item)}     
+      >
+        <View style={styles.itemContainer}>
+          <View>
+            <Image source={{ uri: item.media[0]}} style={{ height: 75, width: 75 }}/>
+          </View>
+          <View style={styles.itemLabels}>
+            <Text style={styles.itemTitle}>{item.title}</Text>
+            <Text style={styles.itemCategory}>{item.category}</Text>
+          </View>        
+        </View>      
+      </TouchableOpacity>
+    )
+  }
 
   render() {
+    const { favorites } = this.props;
     return (
       <View style={styles.mainContainer}>
-        <Header navigation={this.props.navigation} title={`Favorites View`} />
-        <View>
-          <TouchableOpacity onPress={this.onClickNavigate}>
-            <View style={{ width: width, height: 150, backgroundColor: 'lightgrey', justifyContent: 'center', alignItems: 'center' }}>
-              <Text>{`example favorite recipe ${width}`}</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+        <Header navigation={this.props.navigation} title={`Favorites`} />
+        <FlatList 
+          data={favorites}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+        />
       </View>
     );
   }
