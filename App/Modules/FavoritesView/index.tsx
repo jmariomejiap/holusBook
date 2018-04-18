@@ -5,6 +5,7 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import Header from '../../Comps/Header';
@@ -64,14 +65,17 @@ export default class FavoritesView extends React.Component<T.Props> {
   render() {
     const { favorites } = this.props;
     return (
-      <View style={styles.mainContainer}>
-        <Header navigation={this.props.navigation} title={`Favorites`} />
-        <FlatList 
-          data={favorites}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-        />
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+        <View style={styles.mainContainer}>
+          <Header navigation={this.props.navigation} title={`Favorites`} />
+          <FlatList 
+            data={favorites}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />
+        </View>
+      </SafeAreaView>
+      
     );
   }
 }

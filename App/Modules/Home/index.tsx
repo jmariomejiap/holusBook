@@ -6,7 +6,8 @@ import {
   FlatList,
   RefreshControl,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  SafeAreaView
 } from 'react-native';
 import { HomeIndex as T } from '../types/appTypes';
 
@@ -92,19 +93,21 @@ export default class Home extends React.Component<T.Props, T.State> {
 
   render() {
     return (
-      <View style={styles.categoriesContainer}>        
-        <FlatList 
-          data={this.props.categoriesData}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-          refreshControl={
-            <RefreshControl
-              refreshing={this.state.isRefreshing}
-              onRefresh={this._onRefresh}
-            />
-          }
-        />     
-    </View> 
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+        <View style={styles.categoriesContainer}>        
+          <FlatList 
+            data={this.props.categoriesData}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.isRefreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          />     
+      </View>
+    </SafeAreaView>
     );
   }
 }

@@ -5,7 +5,8 @@ import {
   Dimensions,
   FlatList,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView
 } from 'react-native';
 import { ListRecipesView as T, RecipeData } from '../types/appTypes'
 
@@ -92,14 +93,17 @@ export default class ListRecipes extends React.Component<T.Props> {
     const { name } = navigation.state.params;
 
     return (
-      <View style={styles.mainContainer}>
-        <Header navigation={navigation} title={name} />
-        <FlatList
-          data={this._selectData(name)}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
-        />      
-      </View>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+        <View style={styles.mainContainer}>
+          <Header navigation={navigation} title={name} />
+          <FlatList
+            data={this._selectData(name)}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />      
+        </View>
+      </SafeAreaView>
+      
     );
   }
 }
