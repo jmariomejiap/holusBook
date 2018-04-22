@@ -20,11 +20,13 @@ const styles: any = {
     fontWeight: 'bold',
     marginVertical: 22,
     textAlign: 'center',
+    fontFamily: 'CircularStd-Medium',
   },
   slideContent: {
     color: 'grey',
     fontSize: 13,
     textAlign: 'center',
+    fontFamily: 'CircularStd-Book',
   },
   tourButtonWrapper : {
     backgroundColor: 'transparent',
@@ -34,9 +36,23 @@ const styles: any = {
     top: 0,
     left: 0,
     flex: 1,
-    paddingHorizontal: 15,
+    paddingHorizontal: 35,
     paddingVertical: 15,
     justifyContent: 'space-between',
+  },
+  tourButton: {
+    color: 'rgb(114, 135, 41)',
+    fontFamily: 'CircularStd-Book',
+  },
+  activeDot: {
+    backgroundColor: 'black',
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginLeft: 3,
+    marginRight: 3,
+    marginTop: 3,
+    marginBottom: 3
   },
   categoriesContainer: {
     ...ApplicationStyles.screen.mainContainer,

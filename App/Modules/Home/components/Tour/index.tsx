@@ -15,28 +15,49 @@ const Swiper = require('react-native-swiper');
 
 const { width } = Dimensions.get('window');
 
-export default class Tour extends React.Component<T.Props> {
+interface State {
+  currentIndex: number;
+}
+
+export default class Tour extends React.Component<T.Props, State> {
   static navigationOptions = {
     tabBarVisible: false
   };
+  constructor(props:T.Props) {
+    super(props);
+    this.state = {
+      currentIndex: 0
+    }
+  }
 
 
-  _onSkip =() => {
+  _onSkip = () => {
     this.props.handleTourState();
     this.props.navigation.navigate('Home');
   }
+
+  _onNext = (index:any) => {
+    if (index === 0 && this.state.currentIndex === 2) {
+      return this._onSkip();
+    }
+    this.setState({ currentIndex: index });
+  } 
 
   render(){
     return (
       <Swiper 
         showsButtons={true}
+        loop={true}
+        index={0}
         prevButton={
           <TouchableOpacity onPress={this._onSkip} >
-            <Text>Skip</Text>
+            <Text style={styles.tourButton}>Skip</Text>
           </TouchableOpacity>
         }
-        nextButton={<Text>Next ></Text>}
+        nextButton={<Text style={styles.tourButton}>Next ></Text>}
         buttonWrapperStyle={styles.tourButtonWrapper}
+        activeDot={<View style={styles.activeDot} />}
+        onIndexChanged={this._onNext}
       >
         <View style={styles.slide}>
           <View >
