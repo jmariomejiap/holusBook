@@ -103,7 +103,7 @@ const styles: any = {
   },
   ingredientText: {
     fontFamily: 'HoeflerText-Regular',
-    fontSize: 13,
+    fontSize: 14,
     padding: 5,
   }
 

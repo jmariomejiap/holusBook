@@ -25,7 +25,7 @@ export default class ListDetailsGen extends React.Component<T.Props> {
   }
 
   _renderItem = ({item}: any) => {
-    const biggerFont = this.props.bigger ? { fontSize: 15 } : null;
+    const biggerFont = this.props.bigger ? { fontSize: 16 } : null;
 
     return (
       <Text style={[styles.ingredientText, biggerFont ]}>{`\u2022 ${item.ingr}`}</Text>
