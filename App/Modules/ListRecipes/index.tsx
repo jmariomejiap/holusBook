@@ -93,7 +93,7 @@ export default class ListRecipes extends React.Component<T.Props> {
     const { name } = navigation.state.params;
 
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
         <View style={styles.mainContainer}>
           <Header navigation={navigation} title={name} />
           <FlatList

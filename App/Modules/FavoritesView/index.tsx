@@ -65,7 +65,7 @@ export default class FavoritesView extends React.Component<T.Props> {
   render() {
     const { favorites } = this.props;
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
         <View style={styles.mainContainer}>
           <Header navigation={this.props.navigation} title={`Favorites`} />
           <FlatList 

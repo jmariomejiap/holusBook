@@ -9,7 +9,7 @@ const styles: any = {
   searchBarContainer: {
     width: Metrics.screenWidth,
     height: 90,
-    backgroundColor: 'rgb(110, 119, 100)',
+    backgroundColor: 'rgb(94, 102, 85)',
     justifyContent: 'center',
     alignItems: 'center'
   },

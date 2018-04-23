@@ -56,7 +56,7 @@ const styles: any = {
   },
   categoriesContainer: {
     ...ApplicationStyles.screen.mainContainer,
-    backgroundColor: 'rgb(110, 119, 100)',
+    backgroundColor: 'rgb(94, 102, 85)', // 'rgb(110, 119, 100)' lightergreen
     alignItems: 'center',
     flexWrap: 'wrap',
     paddingTop: 10,

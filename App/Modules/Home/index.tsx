@@ -93,7 +93,7 @@ export default class Home extends React.Component<T.Props, T.State> {
 
   render() {
     return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(110, 119, 100)' }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
         <View style={styles.categoriesContainer}>        
           <FlatList 
             data={this.props.categoriesData}
