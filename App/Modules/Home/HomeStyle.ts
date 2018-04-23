@@ -37,12 +37,17 @@ const styles: any = {
     left: 0,
     flex: 1,
     paddingHorizontal: 35,
-    paddingVertical: 15,
+    paddingVertical: 20,
     justifyContent: 'space-between',
   },
   tourButton: {
     color: 'rgb(114, 135, 41)',
     fontFamily: 'CircularStd-Book',
+    paddingRight: 5,
+  },
+  nextButtonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   activeDot: {
     backgroundColor: 'black',

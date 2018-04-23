@@ -6,6 +6,7 @@ import {
   Dimensions,
   Image
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
 import { Tour as T } from '../../../types/appTypes';
 import styles from '../../HomeStyle';
 
@@ -37,12 +38,17 @@ export default class Tour extends React.Component<T.Props> {
             <Text style={styles.tourButton}>Skip</Text>
           </TouchableOpacity>
         }
-        nextButton={<Text style={styles.tourButton}>Next ></Text>}
+        nextButton={
+          <View style={styles.nextButtonContainer}>
+            <Text style={styles.tourButton}>Next</Text>
+            <Icon name={'arrow-long-right'} size={13} color={'rgb(114, 135, 41)'} style={{ paddingTop: 2}}/>
+          </View>
+        }
         buttonWrapperStyle={styles.tourButtonWrapper}
         activeDot={<View style={styles.activeDot} />}
       >
         <View style={styles.slide}>
-          <View >
+          <View>
             <Image
               source={require('../../../../Assets/tourImages/healthy.png')}
               style={{ width, height: 380}}
