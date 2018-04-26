@@ -26,7 +26,6 @@ const HomeStack = StackNavigator({
   Home: { screen: Home },
   ListRecipes: { screen: ListRecipes },
   RecipeDetails: { screen: RecipeDetails },
-  // Tour: { screen: Tour }
 },
 {
   initialRouteName: 'Home',
@@ -107,27 +106,4 @@ const SwitchNav = SwitchNavigator(
 );
 
 
-
-
-
-
-// Manifest of possible screens
-// const PrimaryNav = StackNavigator(
-//  {
-//    Home: {
-//      screen: Home
-//    },
-//    SecondView: {
-//      screen: SecondView
-//    }
-//  },
-//  {
-//    // Default config for all screens
-//    headerMode: 'none',
-//    initialRouteName: 'Home',
-    // Uncomment for disable swipe back
-    /** navigationOptions: { gesturesEnabled: false }, */
-//  });
-
-// export default PrimaryNav;
 export default SwitchNav;
