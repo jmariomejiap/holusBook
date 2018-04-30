@@ -6,7 +6,6 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
-  TouchableHighlight,
   Keyboard,
   SafeAreaView
 } from 'react-native';
@@ -104,6 +103,7 @@ export default class SearchView extends React.Component<T.Props, {}> {
           </View>
           <View style={{ flex: 1 }}>
             <TouchableOpacity
+              activeOpacity={1}
               style={{ flex: 1 }}
               onPress={this.handleKeyboard}
             >
