@@ -6,6 +6,18 @@ const styles: any = {
     ...ApplicationStyles.screen.mainContainer,
     backgroundColor: 'white'
   },
+  headerContainer: {
+    ...ApplicationStyles.screen.centerElementsContainer,
+    height: Metrics.buttonHeight,
+    width: Metrics.screenWidth,
+    backgroundColor: 'rgb(94, 102, 85)',
+    paddingTop: Metrics.baseMargin
+  },
+  headerTitle: {
+    ...ApplicationStyles.screen.baseTextTitle,
+    color: Colors.snow,
+    fontFamily: 'CircularStd-Book',
+  },
   itemContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -33,7 +45,21 @@ const styles: any = {
     fontFamily: 'CircularStd-Book',
     color: 'lightgrey',
     fontSize: 12,
+  },
+  noFavContainer: {
+    flex: 1,
+    ...ApplicationStyles.screen.centerElementsContainer,
+  },
+  noFavTextContainer: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  noFavText: {
+    fontFamily: 'CircularStd-Book',
+    color: 'grey',
+    fontSize: 16,
   }
+
 };
 
 export default StyleSheet.create(styles);

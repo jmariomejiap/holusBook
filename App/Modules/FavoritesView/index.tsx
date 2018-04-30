@@ -8,7 +8,7 @@ import {
   SafeAreaView
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
-import Header from '../../Comps/Header';
+import Icons from 'react-native-vector-icons/Ionicons';
 import styles from './FavoritesViewStyle';
 
 // types
@@ -19,22 +19,25 @@ export default class FavoritesView extends React.Component<T.Props> {
   constructor(props: any) {
     super(props);
 
-    /** Bind Functions */
-
-    // Actions
-    this.onClickGoBack = this.onClickGoBack.bind(this);
     this.onClickNavigate = this.onClickNavigate.bind(this);
     this._renderItem = this._renderItem.bind(this);
   }
 
-  // Actions
-  onClickGoBack() {
-    const backAction = NavigationActions.back({
-      key: null
-    });
-    this.props.navigation.dispatch(backAction);
-  }
 
+  // optional Render when no favorites selected.
+  noFavorites = () => (
+    <View style={styles.noFavContainer} >
+      <Icons name={'ios-book-outline'} size={55} color={'grey'}/>
+      <View style={styles.noFavTextContainer}>
+        <Text style={styles.noFavText}>Your Favorites Book...</Text>
+        <Text style={styles.noFavText}>is empty</Text>
+        <Text style={styles.noFavText}>Go ahead, find some great recipes!</Text>
+      </View>      
+    </View>
+  );
+
+
+  // Actions to navigate to see a recipe.
   onClickNavigate(recipe: RecipeData) {
     this.props.navigation.navigate('RecipeDetails', { recipe });
   }
@@ -43,6 +46,7 @@ export default class FavoritesView extends React.Component<T.Props> {
     return item.key;
   }
 
+  // render favorite component.
   _renderItem({item}: any) {
     return(
       <TouchableOpacity
@@ -67,12 +71,18 @@ export default class FavoritesView extends React.Component<T.Props> {
     return (
       <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
         <View style={styles.mainContainer}>
-          <Header navigation={this.props.navigation} title={`Favorites`} />
-          <FlatList 
-            data={favorites}
-            keyExtractor={this._keyExtractor}
-            renderItem={this._renderItem}
-          />
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerTitle}>FAVORITES</Text>
+          </View>
+          {(favorites.length === 0) ?
+            this.noFavorites()
+            :
+            <FlatList 
+              data={favorites}
+              keyExtractor={this._keyExtractor}
+              renderItem={this._renderItem}
+            />
+          }          
         </View>
       </SafeAreaView>
       

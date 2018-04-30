@@ -2,6 +2,7 @@
 import { Dispatch, Action } from '../../Redux/types';
 import callApi from '../../Utils/apiCaller';
 import filterCategory from '../../Utils/filterCategory';
+import { RecipeData } from '../../Modules/types/appTypes'
 
 // Constants
 const SET_APP_NAME = 'home/setAppName';
@@ -26,10 +27,6 @@ export type Actions = {
   TOUR_STATE: { type: typeof TOUR_STATE }
 };
 
-interface RecipeContent {
-  [key: string]: any;
-}
-
 
 /**
  * Basic Action Example
@@ -40,21 +37,21 @@ export const handleTourState = (): Action => ({ type: TOUR_STATE });
 
 export const handleRefreshing = (): Action => ({ type: DATA_REFRESHING });
 
-export const updateAllData = (arrRecipes: Array<RecipeContent> ) => ({ type: UPDATE_ALL_DATA, value: arrRecipes })
+export const updateAllData = (arrRecipes: Array<RecipeData> ) => ({ type: UPDATE_ALL_DATA, value: arrRecipes })
 
-export const updateSoupData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_SOUP_DATA, value: arrRecipes });
+export const updateSoupData = (arrRecipes: Array<RecipeData> ): Action => ({ type: UPDATE_SOUP_DATA, value: arrRecipes });
 
-export const updateAppetizersData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_APPETIZER_DATA, value: arrRecipes });
+export const updateAppetizersData = (arrRecipes: Array<RecipeData> ): Action => ({ type: UPDATE_APPETIZER_DATA, value: arrRecipes });
 
-export const updateDinnerData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_DINNER_DATA, value: arrRecipes });
+export const updateDinnerData = (arrRecipes: Array<RecipeData> ): Action => ({ type: UPDATE_DINNER_DATA, value: arrRecipes });
 
-export const updateSaladData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_SALAD_DATA, value: arrRecipes });
+export const updateSaladData = (arrRecipes: Array<RecipeData> ): Action => ({ type: UPDATE_SALAD_DATA, value: arrRecipes });
 
-export const updateDessertData = (arrRecipes: Array<RecipeContent> ): Action => ({ type: UPDATE_DESSERT_DATA, value: arrRecipes });
+export const updateDessertData = (arrRecipes: Array<RecipeData> ): Action => ({ type: UPDATE_DESSERT_DATA, value: arrRecipes });
 
-export const addFavorite = (recipeObj: RecipeContent): Action => ({ type: ADD_FAVORITE, value: recipeObj });
+export const addFavorite = (recipeObj: RecipeData): Action => ({ type: ADD_FAVORITE, value: recipeObj });
 
-export const removeFavorite = (recipeObj: RecipeContent): Action => ({ type: REMOVE_FAVORITE, value: recipeObj });
+export const removeFavorite = (recipeObj: RecipeData): Action => ({ type: REMOVE_FAVORITE, value: recipeObj });
 
 export const handleFavoriteOn = (): Action => ({ type: FAVORITE_SELECTED });
 
@@ -64,7 +61,7 @@ export const handleSearchInput = (value: string) => ({ type: SEARCH_INPUT, value
 
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
-    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holusData.json')
+    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_Data.json')
       .then(data => {
         const soups = filterCategory(data, 'soup');
         const appetizers = filterCategory(data, 'appetizer');

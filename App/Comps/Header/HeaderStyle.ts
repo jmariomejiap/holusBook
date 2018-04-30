@@ -22,7 +22,7 @@ const objectStyle: any = {
   title: {
     ...ApplicationStyles.screen.baseTextTitle,
     color: Colors.snow,
-    fontFamily: 'HoeflerText-Regular',
+    fontFamily: 'CircularStd-Book',
   }
 };
 
