@@ -61,10 +61,10 @@ const styles: any = {
   },
   categoriesContainer: {
     ...ApplicationStyles.screen.mainContainer,
-    backgroundColor: 'rgb(94, 102, 85)', // 'rgb(110, 119, 100)' lightergreen
+    backgroundColor: 'rgb(94, 102, 85)',
     alignItems: 'center',
     flexWrap: 'wrap',
-    paddingTop: 10,
+    paddingTop: 2,
   },
   touchableContainer: {
     marginLeft: 10,

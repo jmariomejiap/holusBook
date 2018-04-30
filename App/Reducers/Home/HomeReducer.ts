@@ -21,9 +21,6 @@ import {
   SEARCH_INPUT,
 } from './HomeAction';
 
-interface Cat {
-  [key: string]: any;
-}
 
 // Type
 type State = {

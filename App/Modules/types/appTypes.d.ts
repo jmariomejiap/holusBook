@@ -90,6 +90,7 @@ export interface RecipeData {
   title: string;
   time: string;
   portions: number;
+  calories: number;
   category: string;
   ingredients: Array<string>;
   media: Array<string>;

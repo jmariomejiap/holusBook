@@ -61,7 +61,7 @@ export const handleSearchInput = (value: string) => ({ type: SEARCH_INPUT, value
 
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
-    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_Data.json')
+    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_Complete_Data.json')
       .then(data => {
         const soups = filterCategory(data, 'soup');
         const appetizers = filterCategory(data, 'appetizer');

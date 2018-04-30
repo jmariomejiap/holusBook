@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   SafeAreaView
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Entypo';
 import { ListRecipesView as T, RecipeData } from '../types/appTypes'
 
 import { NavigationActions } from 'react-navigation'; // Libraries
@@ -69,22 +70,41 @@ export default class ListRecipes extends React.Component<T.Props> {
     return item.key;
   }
 
-  _renderItem = ({item}: any) => (
-    <TouchableOpacity
-      key={item.key}    
-      onPress={() => this.onClickNavigate(item)}     
-      style={styles.wrapper}   
-    >
-      <View style={styles.container}>
-        <View style={styles.pictureContainer}>
-          <Image source={{ uri: item.media[0]}} style={[styles.picture, { width: width - 20 }]}/>
+  _renderItem = ({item}: any) => {
+    const iconColor = 'rgb(118, 140, 40)';
+
+    return (
+      <TouchableOpacity
+        key={item.key}    
+        onPress={() => this.onClickNavigate(item)}     
+        style={styles.wrapper}   
+      >
+        <View style={styles.container}>
+          <View style={styles.pictureContainer}>
+            <Image source={{ uri: item.media[0]}} style={styles.picture}/>
+          </View>
+          <View style={styles.titleContainer}>
+            <View>
+              <Text style={styles.text}>{`${item.title}`}</Text>
+            </View>
+            <View style={{ justifyContent: 'space-between', flexDirection: 'row', marginHorizontal: 20 }}>
+              <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+                <Text style={{ fontSize: 22, color: iconColor }}>{item.calories}</Text>
+                <Text style={{ fontSize: 12, color: 'grey' }}>Cal</Text>
+              </View>
+              <View style={{ flexDirection: 'row', backgroundColor: 'white', alignItems: 'center' }}>
+                <Ionicons name={'swarm'} size={15} color={iconColor} />
+                <Ionicons name={'leaf'} size={15} color={iconColor} />
+                <Ionicons name={'emoji-flirt'} size={15} color={iconColor} />
+                <Ionicons name={'tree'} size={15} color={iconColor} />
+                <Ionicons name={'water'} size={15} color={iconColor} />
+              </View>            
+            </View>
+          </View>
         </View>
-        <View style={styles.titleContainer}>
-          <Text style={styles.text}>{`${item.title}`}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  ) 
+      </TouchableOpacity>
+    )
+  }
 
 
 

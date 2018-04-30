@@ -4,13 +4,11 @@ import { ApplicationStyles, Colors, Metrics } from '../../Themes';
 const styles: any = {
   mainContainer: {
     ...ApplicationStyles.screen.mainContainer,
-    backgroundColor: 'rgb(250, 255, 240)',
+    backgroundColor: 'rgb(250, 252, 247)', //'rgb(250, 255, 240)',
   },
   wrapper: {
     marginTop: 10,
     marginBottom: 4,
-    //marginLeft: 10,
-    //marginRight: 10,
   },
   container: {
     flexDirection: 'column',
@@ -20,49 +18,43 @@ const styles: any = {
   },
   pictureContainer: {
     height: 230,
+    width: Metrics.screenWidth,
     zIndex: 1,
-    // borderBottomLeftRadius: 5,
-    // borderBottomRightRadius: 5,
-    // borderTopLeftRadius: 5,
-    // borderTopRightRadius: 5,
-    // overflow: 'hidden',
+    borderTopLeftRadius: 8,
+    borderBottomLeftRadius: 8,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 8,
     shadowColor: '#000000',
     shadowOffset: {
       width: 2,
       height: 1
     },
     shadowRadius: 3,
-    shadowOpacity: 0.5, 
+    shadowOpacity: 0.3, 
     backgroundColor: 'transparent',
   },
   picture: {
     height: 230,
-    // borderBottomLeftRadius: 8,
-    // borderBottomRightRadius: 8,
-    // borderTopLeftRadius: 8,
-    // borderTopRightRadius: 8,
+    width: Metrics.screenWidth - 20
   },
   titleContainer: {
+    justifyContent: 'space-around',
     marginHorizontal: 15,
     height: 130,
-    backgroundColor: 'snow',
+    backgroundColor: 'white',
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
       height: 0.5
     },
     shadowRadius: 2,
-    shadowOpacity: 0.5, 
+    shadowOpacity: 0.2, 
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
     //overflow: 'hiden',
   },
   text: {
-    flex: 1,
-    fontSize: 20,
-    backgroundColor: 'snow',
+    fontSize: 18,
     color: 'rgb(33, 56, 7)',
     paddingTop: 24,
     textAlign: 'center',
