@@ -1,5 +1,15 @@
 import * as React from 'react';
-import { TextInput, Text, View, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
+import {
+  TextInput,
+  Text,
+  View,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  TouchableHighlight,
+  Keyboard,
+  SafeAreaView
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SearchView as T, RecipeData } from '../types/appTypes'
 
@@ -11,11 +21,16 @@ export default class SearchView extends React.Component<T.Props, {}> {
     super(props);
 
     /** Bind Functions */
+    this.handleKeyboard = this.handleKeyboard.bind(this);
     this.onClickNavigate = this.onClickNavigate.bind(this);
     this._onClear = this._onClear.bind(this);
     this._onInputChange = this._onInputChange.bind(this);
     this._searchData = this._searchData.bind(this);
     this._renderItem = this._renderItem.bind(this); 
+  }
+
+  handleKeyboard() {
+    Keyboard.dismiss();
   }
 
   onClickNavigate(recipe: RecipeData) {
@@ -88,14 +103,20 @@ export default class SearchView extends React.Component<T.Props, {}> {
             </View>          
           </View>
           <View style={{ flex: 1 }}>
-            {(searchInput.length > 2 ) ?
-              <FlatList 
-                data={this._searchData(allData, searchInput)}
-                keyExtractor={this._keyExtractor}
-                renderItem={this._renderItem}
-              />
-              : null            
-            }          
+            <TouchableOpacity
+              style={{ flex: 1 }}
+              onPress={this.handleKeyboard}
+            >
+              {(searchInput.length > 2 ) ?
+                <FlatList 
+                  data={this._searchData(allData, searchInput)}
+                  keyExtractor={this._keyExtractor}
+                  renderItem={this._renderItem}
+                />
+                :
+                <View />
+              }   
+            </TouchableOpacity>                   
           </View>
         </View>
       </SafeAreaView>
