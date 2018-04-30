@@ -53,6 +53,28 @@ const styles: any = {
     borderBottomRightRadius: 8,
     //overflow: 'hiden',
   },
+  titleSubContainer: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginHorizontal: 20,
+  },
+  caloriesContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  caloriesTextNum: {
+    fontSize: 22,
+    color: 'rgb(118, 140, 40)',
+  },
+  caloriesTextLegend: {
+    fontSize: 12,
+    color: 'grey',
+  },
+  iconsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  },
   text: {
     fontSize: 18,
     color: 'rgb(33, 56, 7)',

@@ -87,12 +87,12 @@ export default class ListRecipes extends React.Component<T.Props> {
             <View>
               <Text style={styles.text}>{`${item.title}`}</Text>
             </View>
-            <View style={{ justifyContent: 'space-between', flexDirection: 'row', marginHorizontal: 20 }}>
-              <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-                <Text style={{ fontSize: 22, color: iconColor }}>{item.calories}</Text>
-                <Text style={{ fontSize: 12, color: 'grey' }}>Cal</Text>
+            <View style={styles.titleSubContainer}>
+              <View style={styles.caloriesContainer}>
+                <Text style={styles.caloriesTextNum}>{item.calories}</Text>
+                <Text style={styles.caloriesTextLegend}>Cal</Text>
               </View>
-              <View style={{ flexDirection: 'row', backgroundColor: 'white', alignItems: 'center' }}>
+              <View style={styles.iconsContainer}>
                 <Ionicons name={'swarm'} size={15} color={iconColor} />
                 <Ionicons name={'leaf'} size={15} color={iconColor} />
                 <Ionicons name={'emoji-flirt'} size={15} color={iconColor} />
