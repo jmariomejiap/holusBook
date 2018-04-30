@@ -5,7 +5,7 @@ import { StackNavigator, TabNavigator, TabBarBottom, SwitchNavigator } from 'rea
 
 // components
 import Home from '../Modules/Home/HomeScene';
-import Tour from '../Modules/Home/components/Tour/TourScene';
+import Tour from '../Modules/Home/Tour/TourScene';
 
 import ListRecipes from '../Modules/ListRecipes/ListRecipesScene';
 import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';

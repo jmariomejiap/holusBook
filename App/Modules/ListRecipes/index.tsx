@@ -12,7 +12,7 @@ import Ionicons from 'react-native-vector-icons/Entypo';
 import { ListRecipesView as T, RecipeData } from '../types/appTypes'
 
 import { NavigationActions } from 'react-navigation'; // Libraries
-import Header from '../../Comps/Header';
+import Header from '../Header';
 import styles from './ListRecipesStyle';
 
 

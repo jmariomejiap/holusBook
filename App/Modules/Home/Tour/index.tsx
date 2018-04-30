@@ -7,8 +7,8 @@ import {
   Image
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
-import { Tour as T } from '../../../types/appTypes';
-import styles from '../../HomeStyle';
+import { Tour as T } from '../../types/appTypes';
+import styles from '../HomeStyle';
 
 //import Swiper from 'react-native-swiper/src/';
 const Swiper = require('react-native-swiper');
@@ -50,7 +50,7 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('../../../../Assets/tourImages/healthy.png')}
+              source={require('../../../Assets/tourImages/healthy.png')}
               style={{ width, height: 380}}
             />
           </View>
@@ -62,7 +62,7 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('../../../../Assets/tourImages/greener.png')}
+              source={require('../../../Assets/tourImages/greener.png')}
               style={{ width, height: 380}}
             />
           </View>
@@ -75,7 +75,7 @@ export default class Tour extends React.Component<T.Props> {
         <View style={styles.slide}>
           <View>
             <Image
-              source={require('../../../../Assets/tourImages/compassion.png')}
+              source={require('../../../Assets/tourImages/compassion.png')}
               style={{ width, height: 380}}
             />
           </View>
