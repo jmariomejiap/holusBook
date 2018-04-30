@@ -8,7 +8,7 @@ const styles: any = {
   },
   searchBarContainer: {
     width: Metrics.screenWidth,
-    height: 90,
+    height: Metrics.buttonHeight,
     backgroundColor: 'rgb(94, 102, 85)',
     justifyContent: 'center',
     alignItems: 'center'
@@ -19,7 +19,7 @@ const styles: any = {
     alignItems: 'center',
     width: Metrics.screenWidth - 40,
     height: 40,
-    marginTop: 30,
+    marginTop: 5,
     borderBottomColor: 'snow',
     borderBottomWidth: 0.7, 
   },
@@ -38,7 +38,6 @@ const styles: any = {
   clearIcon: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 30, height: 30
   },
   itemContainer: {
     flexDirection: 'row',

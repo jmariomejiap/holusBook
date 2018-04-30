@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextInput, Text, View, FlatList, Image, TouchableOpacity } from 'react-native';
+import { TextInput, Text, View, FlatList, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { SearchView as T, RecipeData } from '../types/appTypes'
 
@@ -65,39 +65,40 @@ export default class SearchView extends React.Component<T.Props, {}> {
   render() {
     const { searchInput, allData } = this.props;
     return (
-      <View style={styles.mainContainer}>
-        <View style={styles.searchBarContainer}>
-          <View style={styles.searchBar}>
-            <View style={styles.searchIcon}>
-              <Ionicons name={'ios-search-outline'} size={22} color={'white'}/>
-            </View>            
-            <TextInput
-              style={styles.textInput}
-              onChangeText={this._onInputChange}
-              placeholder='Search'
-              placeholderTextColor='white'
-              value={searchInput}/> 
-            <TouchableOpacity
-              onPress={this._onClear}
-            >
-              <View style={styles.clearIcon}>
-                <Ionicons name={'ios-close'} size={35} color={'lightgrey'}/>
-              </View>
-            </TouchableOpacity>
-          </View>          
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
+        <View style={styles.mainContainer}>
+          <View style={styles.searchBarContainer}>
+            <View style={styles.searchBar}>
+              <View style={styles.searchIcon}>
+                <Ionicons name={'ios-search-outline'} size={22} color={'white'}/>
+              </View>            
+              <TextInput
+                style={styles.textInput}
+                onChangeText={this._onInputChange}
+                placeholder='Search'
+                placeholderTextColor='white'
+                value={searchInput}/> 
+              <TouchableOpacity
+                onPress={this._onClear}
+              >
+                <View style={styles.clearIcon}>
+                  <Ionicons name={'ios-close'} size={35} color={'lightgrey'}/>
+                </View>
+              </TouchableOpacity>
+            </View>          
+          </View>
+          <View style={{ flex: 1 }}>
+            {(searchInput.length > 2 ) ?
+              <FlatList 
+                data={this._searchData(allData, searchInput)}
+                keyExtractor={this._keyExtractor}
+                renderItem={this._renderItem}
+              />
+              : null            
+            }          
+          </View>
         </View>
-        <View style={{ flex: 1 }}>
-          {(searchInput.length > 2 ) ?
-            <FlatList 
-              data={this._searchData(allData, searchInput)}
-              keyExtractor={this._keyExtractor}
-              renderItem={this._renderItem}
-            />
-            : null            
-          }          
-        </View>
-      </View>
-        
+      </SafeAreaView>
     );
   }
 }
