@@ -20,8 +20,11 @@
     "babel-core": "^6.26.0",
     "react": "16.0.0",
     "react-native": "0.50.4",
+    "react-native-parallax-scroll-view": "0.21.0",
+    "react-native-swiper": "git+https://github.com/jmariomejiap/react-native-swiper.git#always-visible",
     "react-native-vector-icons": "4.4.2",
-    "react-navigation": "1.0.0-beta.21",
+    "react-navigation": "1.3.0",
+    "react-navigation-redux-helpers": "^1.0.5",
     "react-redux": "5.0.6",
     "redux": "3.7.2",
     "redux-thunk": "2.2.0"
@@ -41,5 +44,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./App/assets/Fonts/"
+    ]
   }
 }

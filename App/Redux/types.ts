@@ -6,7 +6,7 @@ import { RootAction } from './rootActions';
 
 export interface Action {
   type: string;
-  value: any;
+  value?: any;
 }
 
 export type Dispatch = Dispatch<RootAction>;

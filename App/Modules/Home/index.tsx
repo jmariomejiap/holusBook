@@ -1,51 +1,112 @@
 import * as React from 'react';
-import { Platform, Text, View, TouchableOpacity } from 'react-native';
+import {
+  Text,
+  View,
+  ImageBackground,
+  FlatList,
+  RefreshControl,
+  TouchableOpacity,
+  Dimensions,
+  SafeAreaView
+} from 'react-native';
+import { HomeIndex as T } from '../types/appTypes';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\nCmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\nShake or press menu button for dev menu',
-});
-
-interface Props {
-  navigation: any;
-  home: any;
-  set_app_name: () => any;
-}
 
 // Styles
 import styles from './HomeStyle';
 
-export default class Home extends React.Component<Props, {}> {
-  constructor(props: Props) {
+const { width } = Dimensions.get('window');
+
+export default class Home extends React.Component<T.Props, T.State> {
+  static navigationOptions = {
+    gesturesEnabled: false
+  };
+
+  constructor(props: T.Props) {
     super(props);
+    this.state = {
+      Mounted: false,
+      isRefreshing: false,
+    }
+
+    // this._showTour();
 
     /** Bind Functions */
-
     // Actions
-    this.onClickNavigate = this.onClickNavigate.bind(this);
+    this._onClickNavigate = this._onClickNavigate.bind(this);
+    this._onRefresh = this._onRefresh.bind(this);
   }
 
-  // Actions
-  onClickNavigate() {
-    this.props.navigation.navigate('SecondView');
+
+  componentDidMount() {
+    if (!this.state.Mounted) {
+      this.setState({ Mounted: true });      
+      return this.props.fetchData();
+    }
+    this.setState({ Mounted: true });
   }
+
+
+  _onClickNavigate(name: string) {
+    this.props.navigation.navigate('ListRecipes', { name });
+  }
+
+  
+  _onRefresh() {    
+    //this.props.handleRefreshing();
+    this.setState({ isRefreshing: true });
+    // fetch
+    this.props.fetchData()
+      .then(() => {
+        //this.props.handleRefreshing();
+        //console.log('after fetching data. categories = ', this.props.dinnerData);
+        this.setState({ isRefreshing: false });
+      });
+  }
+
+
+  _keyExtractor = (item: any) => {
+    return item.key;
+  }
+
+  _renderItem = ({item}: any) => {
+    return (
+      <TouchableOpacity
+        key={item.key}
+        style={styles.touchableContainer}
+        onPress={() => this._onClickNavigate(item.key)}
+      >
+        <View 
+          style={styles.catImageContainer}>
+          <ImageBackground
+            source={{ uri: item.uri }}
+            style={[styles.image, { width: width - 20 }]}
+          >
+            <Text style={styles.categorieText}>{item.key}</Text>
+          </ImageBackground>
+        </View>
+      </TouchableOpacity>
+    );
+  }  
+  
 
   render() {
     return (
-      <View style={styles.container} >
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-      </Text>
-        <Text style={styles.instructions} >
-          To get started, edit App.js
-      </Text>
-        <Text style={styles.instructions} >
-          {instructions}
-        </Text>
-        <TouchableOpacity style={styles.buttonBase} onPress={this.onClickNavigate} >
-          <Text>{`Navigate`}</Text>
-        </TouchableOpacity>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'rgb(94, 102, 85)' }}>
+        <View style={styles.categoriesContainer}>        
+          <FlatList 
+            data={this.props.categoriesData}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+            refreshControl={
+              <RefreshControl
+                refreshing={this.state.isRefreshing}
+                onRefresh={this._onRefresh}
+              />
+            }
+          />     
       </View>
+    </SafeAreaView>
     );
   }
 }

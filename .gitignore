@@ -63,3 +63,7 @@ package-lock.json
 # Generate files by tsc
 **/*.js
 *.js.map
+
+
+# assets Fonts. Waiting for selected options
+App/Assets/Fonts
