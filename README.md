@@ -1,46 +1,59 @@
-React Native Boilerplate:
+# Holus Book
 
-Using:
+**Holus Book** is an App that I developed as a side project to share some vegetarians recipes  with my friends (meat and Non-Meat eaters) with the hope of solving the “what can I cook for you” dilemma. 
 
-```json
-"react": "16.0.0",
-"react-native": "0.50.4",
-"react-native-vector-icons": "4.4.2",
-"react-navigation": "1.0.0-beta.21",
-"react-redux": "5.0.6",
-"redux": "3.7.2",
-"redux-thunk": "2.2.0"
+**Holus Book** was built using React Native, React Navigation, Redux, Typescript and AWS S3 Bucket.
+
+
+## Demo
+
+.... loading.....
+
+
+## Getting Started
+
+#### Installation
+Instructions using Yarn but Npm works as well.
+
+```
+$ git clone https://github.com/jmariomejiap/holusBook.git
 ```
 
-Steps to run:
+Install dependencies.
 
-```js
-git clone <remote>
+
+```
+$ yarn install
 ```
 
-```js
-run `yarn install`
+
+Link native dependencies:
+```
+$ react-native link
 ```
 
-```js
-run `react-native link`
-```
-
+Since it is using Typescript, you must generate `js`.
 _____ 
-For compiling `ts` files and generate `js`.
+Compile and generate
 
-```js
-`yarn run build` 
+```
+$ yarn run build
 ```
 _____ 
 
 For compiling `ts` files and generate `js`, waiting for changes automatically
 
-```js
-`yarn run tsc:watch`
+```
+$ yarn run tsc:watch
 ```
 _____ 
 
-```js
-run with `react-native run-ios`
+
+Running Holus Book on the Simulator.
 ```
+$ react-native run-ios
+```
+
+
+#### Configure Holus Book.
+Add your own Recipes.
