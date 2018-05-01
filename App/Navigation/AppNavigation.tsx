@@ -4,17 +4,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StackNavigator, TabNavigator, TabBarBottom, SwitchNavigator } from 'react-navigation';
 
 // components
+import LoadingScreen from '../Modules/Home/LoadingApp';
 import Home from '../Modules/Home/HomeScene';
 import Tour from '../Modules/Home/Tour/TourScene';
-
 import ListRecipes from '../Modules/ListRecipes/ListRecipesScene';
 import RecipeDetails from '../Modules/RecipeDetails/RecipeScene';
 import SearchView from '../Modules/SearchView/SearchViewScene';
 import FavoritesView from '../Modules/FavoritesView/FavoritesViewScene';
 
-// new
-import LoadingScreen from '../Modules/Home/LoadingApp';
-import { create } from 'domain';
+
 
 const TourStack = StackNavigator({
   Tour: { screen: Tour },
