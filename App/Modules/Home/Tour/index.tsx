@@ -31,6 +31,7 @@ export default class Tour extends React.Component<T.Props> {
     return (
       <Swiper 
         showsButtons={true}
+        forceShowPrevButton={true}
         loop={false}
         index={0}
         prevButton={
