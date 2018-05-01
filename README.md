@@ -56,4 +56,59 @@ $ react-native run-ios
 
 
 #### Configure Holus Book.
-Add your own Recipes.
+Add your own Recipes. It is pretty straight forward.
+
+1.  AWS set up.
+
+* Create/Login into your AWS S3 account.
+* Create JSON file where you will have all your recipes Data. follow this convention example.
+
+```
+[
+  {
+    "key": "recipe1",
+    "title": "Recipe's name",
+    "time": "40 minutes",
+    "portions": 8,
+    "calories": 389,
+    "category": "dinner",
+    "ingredients": [
+      "1 cup of water",
+      ...
+      "red onion rings"
+    ],
+    "media": [
+      "https://s3-us-west-2.amazonaws.com/<Name of your Project>/recipe_images/<file_name>.jpg"
+    ],
+    "directions": [
+      "In microwave-safe medium bowl, microwave water and bulgur on High 5 to 7 minutes or until liquid is absorbed.",
+      ....
+      "Spray 12-inch nonstick skillet with cooking spray; heat on medium 1 minute. Add burgers in 2 batches; cook 10 to 12 minutes or until browned, turning once. Serve with buns, lettuce, tomato, and onion, if you like."
+    ]
+  },
+  {
+    "key": "recipe2",
+    ...
+  },
+]
+```
+
+* Create a folder named **recipe_images** and upload all your recipe pictures.
+* Create a folder named **category_images** and upload the images you want to show in each category.
+
+
+2. Project Set Up.
+
+* Go to the Config file and update paths to point at AWS.
+
+```
+    * App
+        * Config
+            * index.tsx
+
+```
+
+
+## Contributing
+I welcome contributions! Please open an issue if you have any feature ideas or find any bugs. I also accept pull requests with open arms. I will go over the issues when I have time. :)
+
