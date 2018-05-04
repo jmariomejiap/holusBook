@@ -1,8 +1,8 @@
-// Types
 import { Dispatch, Action } from '../../Redux/types';
 import callApi from '../../Utils/apiCaller';
 import filterCategory from '../../Utils/filterCategory';
-import { RecipeData } from '../../Modules/types/appTypes'
+import { RecipeData } from '../../Modules/types/appTypes';
+import { recipesDataPath } from '../../Config/index';
 
 // Constants
 const SET_APP_NAME = 'home/setAppName';
@@ -61,7 +61,7 @@ export const handleSearchInput = (value: string) => ({ type: SEARCH_INPUT, value
 
 export const fetchData = () => {
   return(dispatch: Dispatch) => {
-    return callApi('https://s3-us-west-2.amazonaws.com/holus-book/holus_Complete_Data.json')
+    return callApi(recipesDataPath)
       .then(data => {
         const soups = filterCategory(data, 'soup');
         const appetizers = filterCategory(data, 'appetizer');
