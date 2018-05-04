@@ -32,7 +32,7 @@ Link native dependencies:
 $ react-native link
 ```
 
-Since it is using Typescript, you must generate `js`.
+Since it is using Typescript, you must generate *js*.
 _____ 
 Compile and generate
 
@@ -55,10 +55,13 @@ $ react-native run-ios
 ```
 
 
+
 #### Configure Holus Book.
+___
+
 Add your own Recipes. It is pretty straight forward.
 
-1.  AWS set up.
+###### AWS set up.
 
 * Create/Login into your AWS S3 account.
 * Create JSON file where you will have all your recipes Data. follow this convention example.
@@ -97,9 +100,12 @@ Add your own Recipes. It is pretty straight forward.
 * Create a folder named **category_images** and upload the images you want to show in each category.
 
 
-2. Project Set Up.
+###### Project Set Up.
+___
+Holus Book has a config file where you will modifiy the exapmple paths and put your newly created AWS information. 
 
-* Go to the Config file and update paths to point at AWS.
+
+* Go to the Config file and update **recipesDataPath** and **categoriesPath** paths. 
 
 ```
     * App
@@ -107,6 +113,9 @@ Add your own Recipes. It is pretty straight forward.
             * index.tsx
 
 ```
+
+And that is it. 
+
 
 
 ## Contributing
