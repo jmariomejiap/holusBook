@@ -1,7 +1,8 @@
 // App Modules
 import { copyObject } from '../../Utils/objectUtils';
 import { Action } from '../../Redux/types';
-import { RecipeData } from '../Home/../../Modules/types/appTypes';
+import { RecipeData, CategoriesData } from '../Home/../../Modules/types/appTypes';
+import { categoriesPath } from '../../Config/index';
 
 // Constants
 import {
@@ -32,21 +33,13 @@ type State = {
   dinnerData: Array<RecipeData>;
   saladData: Array<RecipeData>;
   dessertData: Array<RecipeData>;
-  categoriesData: Array<any>;
+  categoriesData: Array<CategoriesData>;
   isRefreshing: boolean;
   favorites: Array<RecipeData>;
   isFavoriteSelected: boolean;
   searchInput: string;
 };
 
-// data to populate categoriesView
-const categories = [
-  { key: 'Soups', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Soups.jpg' },
-  { key: 'Appetizers', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Appetizers.jpg' },
-  { key: 'Dinner', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Dinner.jpg' },
-  { key: 'Salads', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Salads.jpg' },
-  { key: 'Desserts', uri: 'https://s3-us-west-2.amazonaws.com/holus-book/category_images/Desserts.jpg' },
-];
 
 const inmutableState: State = {
   appName: '',
@@ -57,7 +50,7 @@ const inmutableState: State = {
   dinnerData: [],
   saladData: [],
   dessertData: [],
-  categoriesData: categories,
+  categoriesData: categoriesPath,
   isRefreshing: false,
   favorites: [],
   isFavoriteSelected: false,

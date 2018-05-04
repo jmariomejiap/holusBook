@@ -2,7 +2,7 @@ export namespace HomeIndex {
   export interface Props {
     navigation: any;
     tourTaken: boolean;
-    categoriesData: Array<RecipeData>;
+    categoriesData: Array<CategoriesData>;
     set_app_name: () => any;
     fetchData: () => any;
   }
@@ -95,4 +95,9 @@ export interface RecipeData {
   ingredients: Array<string>;
   media: Array<string>;
   directions: Array<string>;
+}
+
+export interface CategoriesData {
+  key: string;
+  uri: string;
 }
