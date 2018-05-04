@@ -56,7 +56,7 @@ $ react-native run-ios
 ```
 
 
-
+___
 #### Configure Holus Book.
 ___
 
