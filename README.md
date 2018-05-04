@@ -7,7 +7,8 @@
 
 ## Demo
 
-.... loading.....
+![newholusbookdemo](https://user-images.githubusercontent.com/22829270/39653526-2fa654a0-4fa6-11e8-961a-35cb0eaafa95.gif)
+
 
 
 ## Getting Started
