@@ -1,6 +1,6 @@
 # Holus Book
 
-**Holus Book** is an App that I developed as a side project to share some vegetarians recipes  with my friends (meat and Non-Meat eaters) with the hope of solving the “what can I cook for you” dilemma. 
+**Holus Book** is an App that I developed as a side project to share some Vegetarian recipes with my friends (meat and Non-Meat eaters) with the hope of solving the “what can I cook for you” dilemma. 
 
 **Holus Book** was built using React Native, React Navigation, Redux, Typescript and AWS S3 Bucket.
 
@@ -103,7 +103,7 @@ Add your own Recipes. It is pretty straight forward.
 
 ###### Project Set Up.
 ___
-Holus Book has a config file where you will modifiy the exapmple paths and put your newly created AWS information. 
+Holus Book has a `config` file, where you will replace the example paths and put your newly created AWS information. 
 
 
 * Go to the Config file and update **recipesDataPath** and **categoriesPath** paths. 
@@ -120,5 +120,7 @@ And that is it.
 
 
 ## Contributing
-I welcome contributions! Please open an issue if you have any feature ideas or find any bugs. I also accept pull requests with open arms. I will go over the issues when I have time. :)
+I welcome contributions! Please open an issue if you have any feature ideas or find any bugs. I also accept pull requests with open arms. I will go over the issues when I have time. 
+
+:)
 
