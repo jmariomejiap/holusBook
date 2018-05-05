@@ -106,7 +106,7 @@ ___
 Holus Book has a `config` file, where you will replace the example paths and put your newly created AWS information. 
 
 
-* Go to the Config file and update **recipesDataPath** and **categoriesPath** paths. 
+* Go to `index.tsx` file and update **recipesDataPath** and **categoriesPath** paths. 
 
 ```
     * App
